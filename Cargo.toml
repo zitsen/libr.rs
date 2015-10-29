@@ -1,0 +1,8 @@
+[package]
+name = "libr"
+version = "0.1.0"
+authors = ["huolinhe"]
+
+[dependencies]
+libc = "*"
+
