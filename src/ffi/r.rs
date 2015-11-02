@@ -9,9 +9,7 @@ pub use super::ext::utils::*;
 pub use super::ext::rs::*;
 
 #[link(name = "R")]
-extern "C" {
+extern {
     pub fn R_FlushConsole() -> ();
     pub fn R_ProcessEvents() -> ();
 }
-
-
