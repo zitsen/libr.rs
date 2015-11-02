@@ -57,7 +57,6 @@ pub unsafe fn log1p(x: c_double) -> c_double {
 }
 
 #[link(name = "R")]
-#[link_args = "-L/usr/lib64/R/lib -Wl,--export-dynamic -fopenmp -Wl,-z,relro"]
 extern {
     pub fn Rlog1p(x: c_double) -> ::libc::c_double;
     pub fn R_pow(x: c_double, y: ::libc::c_double) -> ::libc::c_double;
