@@ -2,7 +2,10 @@
 name = "libr"
 version = "0.1.0"
 authors = ["huolinhe"]
+build = "build.rs"
 
 [dependencies]
-libc = "*"
+libc = "0.1"
 
+[build-dependencies]
+pkg-config = "0.3"
