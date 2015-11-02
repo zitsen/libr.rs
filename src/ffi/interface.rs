@@ -19,6 +19,7 @@ extern {
     pub static mut R_SignalHandlers: ::libc::c_int;
     pub static mut R_CStackLimit: ::libc::uintptr_t;
     pub static mut R_CStackStart: ::libc::uintptr_t;
+    pub static mut R_running_as_main_program: ::libc::c_int;
 }
 #[link(name = "R")]
 extern {
