@@ -1,3 +1,4 @@
+mod va_list;
 pub mod config;
 pub mod defines;
 pub mod ext;
