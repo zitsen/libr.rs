@@ -1,6 +1,11 @@
-//! Unimplemented.
-
+//! R_ext/RStartup.h
+//!
+//! C functions to be called from alternative front-ends.
+//!
+//! Part of the API for such front-ends but not for packages.
+//!
 use super::boolean::*;
+
 #[repr(C)]
 #[derive(Copy, Clone, Debug)]
 pub enum SA_TYPE {
