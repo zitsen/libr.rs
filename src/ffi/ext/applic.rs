@@ -5,21 +5,26 @@
 pub use super::boolean::*;
 pub use super::blas::*;
 
+#[allow(non_camel_case_types)]
 pub type integr_fn =
     extern "C" fn(x: *mut ::libc::c_double, n: ::libc::c_int,
                   ex: *mut ::libc::c_void) -> ();
+#[allow(non_camel_case_types)]
 pub type optimfn =
     extern "C" fn(arg1: ::libc::c_int, arg2: *mut ::libc::c_double,
                   arg3: *mut ::libc::c_void) -> ::libc::c_double;
+#[allow(non_camel_case_types)]
 pub type optimgr =
     extern "C" fn(arg1: ::libc::c_int, arg2: *mut ::libc::c_double,
                   arg3: *mut ::libc::c_double, arg4: *mut ::libc::c_void)
         -> ();
+#[allow(non_camel_case_types)]
 pub type fcn_p =
     ::std::option::Option<extern "C" fn(arg1: ::libc::c_int,
                                         arg2: *mut ::libc::c_double,
                                         arg3: *mut ::libc::c_double,
                                         arg4: *mut ::libc::c_void) -> ()>;
+#[allow(non_camel_case_types)]
 pub type d2fcn_p =
     ::std::option::Option<extern "C" fn(arg1: ::libc::c_int,
                                         arg2: ::libc::c_int,

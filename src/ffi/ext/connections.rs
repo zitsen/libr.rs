@@ -7,6 +7,7 @@ use super::super::va_list::va_list;
 pub type Rconnection = *mut Struct_Rconn;
 #[repr(C)]
 #[derive(Copy)]
+#[allow(non_snake_case)]
 pub struct Struct_Rconn {
     pub class: *mut ::libc::c_char,
     pub description: *mut ::libc::c_char,

@@ -13,90 +13,76 @@ pub use super::ext::libextern::*;
 pub use libc::ptrdiff_t;
 use libc::FILE;
 
+#[allow(non_camel_case_types)]
 pub type Rbyte = ::libc::c_uchar;
+#[allow(non_camel_case_types)]
 pub type R_len_t = ::libc::c_int;
+#[allow(non_camel_case_types)]
 pub type R_xlen_t = ptrdiff_t;
 
+#[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Copy, Debug)]
-pub struct Struct_Unnamed1 {
+#[derive(Copy, Clone, Debug)]
+pub struct R_long_vec_hdr_t {
     pub lv_length: R_xlen_t,
     pub lv_truelength: R_xlen_t,
 }
-impl ::std::clone::Clone for Struct_Unnamed1 {
+impl ::std::clone::Clone for R_long_vec_hdr_t {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::std::default::Default for Struct_Unnamed1 {
+impl ::std::default::Default for R_long_vec_hdr_t {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-pub type R_long_vec_hdr_t = Struct_Unnamed1;
 
-// pub type SEXPTYPE = ::libc::c_uint;
-#[repr(C)]
-#[derive(Copy, Clone, Debug)]
-pub enum SEXPTYPE {
-    NILSXP = 0, // nil = NULL
-    SYMSXP = 1, // symbols
-    LISTSXP = 2, // lists of dotted pairs
-    CLOSXP = 3, // closures
-    ENVSXP = 4, // environments
-    PROMSXP = 5, // promises: [un]evaluated closure arguments
-    LANGSXP = 6, // language constructs (special lists)
-    SPECIALSXP = 7, // special forms
-    BUILTINSXP = 8, // builtin non-special forms
-    CHARSXP = 9, // "scalar" string type (internal only)
-    LGLSXP = 10, // logical vectors
-    // 11 and 12 were factors and ordered factors in the 1990s
-    INTSXP = 13, // integer vectors
-    REALSXP = 14, // real variables
-    CPLXSXP = 15, // complex variables
-    STRSXP = 16, // string vectors
-    DOTSXP = 17, // dot-dot-dot object
-    ANYSXP = 18, /* make "any" args work.
-                  * Used in specifying types for symbol
-                  * registration to mean anything is okay */
-    VECSXP = 19, // generic vectors
-    EXPRSXP = 20, // expressions vectors
-    BCODESXP = 21, // byte code
-    EXTPTRSXP = 22, // external pointer
-    WEAKREFSXP = 23, // weak reference
-    RAWSXP = 24, // raw bytes
-    S4SXP = 25, // S4, non-vector
+pub type SEXPTYPE = ::libc::c_uint;
 
-    // used for detecting PROTECT issues in memory.c
-    NEWSXP = 30, // fresh node creaed in new page
-    FREESXP = 31, // node released by GC
-
-    FUNSXP = 99, // Closure or Builtin or Special
-}
-
+#[allow(non_camel_case_types)]
 pub enum Struct_SEXPREC { }
 pub type SEXP = *mut Struct_SEXPREC;
+
+#[allow(non_camel_case_types)]
 pub type PROTECT_INDEX = ::libc::c_int;
+
+#[allow(non_camel_case_types)]
 pub enum Struct_R_allocator { }
+#[allow(non_camel_case_types)]
 pub type R_allocator_t = Struct_R_allocator;
-pub type Enum_Unnamed2 = ::libc::c_uint;
-pub const CE_NATIVE: ::libc::c_uint = 0;
-pub const CE_UTF8: ::libc::c_uint = 1;
-pub const CE_LATIN1: ::libc::c_uint = 2;
-pub const CE_BYTES: ::libc::c_uint = 3;
-pub const CE_SYMBOL: ::libc::c_uint = 5;
-pub const CE_ANY: ::libc::c_uint = 99;
-pub type cetype_t = Enum_Unnamed2;
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Copy, Clone, Debug)]
+pub enum cetype_t {
+    CE_NATIVE = 0,
+    CE_UTF8 = 1,
+    CE_LATIN1 = 2,
+    CE_BYTES = 3,
+    CE_SYMBOL = 5,
+    CE_ANY = 99,
+}
+
+#[allow(non_camel_case_types)]
 pub type R_CFinalizer_t =
     ::std::option::Option<extern "C" fn(arg1: SEXP) -> ()>;
+#[allow(non_camel_case_types)]
 pub type R_pstream_data_t = *mut ::libc::c_void;
-pub type Enum_Unnamed3 = ::libc::c_uint;
-pub const R_pstream_any_format: ::libc::c_uint = 0;
-pub const R_pstream_ascii_format: ::libc::c_uint = 1;
-pub const R_pstream_binary_format: ::libc::c_uint = 2;
-pub const R_pstream_xdr_format: ::libc::c_uint = 3;
-pub type R_pstream_format_t = Enum_Unnamed3;
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Copy, Clone, Debug)]
+pub enum R_pstream_format_t {
+    R_pstream_any_format = 0,
+    R_pstream_ascii_format,
+    R_pstream_binary_format,
+    R_pstream_xdr_format,
+}
+
+#[allow(non_camel_case_types)]
 pub type R_outpstream_t = *mut Struct_R_outpstream_st;
+#[allow(non_snake_case)]
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct_R_outpstream_st {
@@ -126,7 +112,10 @@ impl ::std::default::Default for Struct_R_outpstream_st {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[allow(non_camel_case_types)]
 pub type R_inpstream_t = *mut Struct_R_inpstream_st;
+
+#[allow(non_snake_case)]
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct_R_inpstream_st {
