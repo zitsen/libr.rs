@@ -27,11 +27,7 @@ pub struct R_long_vec_hdr_t {
     pub lv_length: R_xlen_t,
     pub lv_truelength: R_xlen_t,
 }
-impl ::std::clone::Clone for R_long_vec_hdr_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+
 impl ::std::default::Default for R_long_vec_hdr_t {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
