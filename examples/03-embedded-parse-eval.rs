@@ -21,10 +21,13 @@ fn main() {
         // Plot
         let mut status = ParseStatus::PARSE_OK;
         let mut had_error: libc::c_int = 0;
-        let mut tmp = Rf_protect(Rf_mkString(CString::new("{pdf(\"03-plot.pdf\"); plot(1:10, pch=\"+\"); print(1:10)}").unwrap().into_raw()));
+        let mut tmp = Rf_protect(Rf_mkString(CString::new("{pdf(\"03-plot.pdf\"); plot(1:10, \
+                                                           pch=\"+\"); print(1:10)}")
+                                                 .unwrap()
+                                                 .into_raw()));
         let mut e = Rf_protect(R_ParseVector(tmp, 1, &mut status, R_NilValue));
         Rf_PrintValue(e);
-        R_tryEval(VECTOR_ELT(e,0), R_GlobalEnv, &mut had_error);
+        R_tryEval(VECTOR_ELT(e, 0), R_GlobalEnv, &mut had_error);
         Rf_unprotect(2);
         embedded::Rf_endEmbeddedR(0);
     }
