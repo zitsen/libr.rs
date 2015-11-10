@@ -20,13 +20,32 @@ extern {
     pub fn R_finite(arg1: ::libc::c_double) -> ::libc::c_int;
 }
 
-pub unsafe fn ISNA(x: ::libc::c_double) -> ::libc::c_int {
-    R_IsNA(x)
-}
-pub unsafe fn ISNAN(x: ::libc::c_double) -> ::libc::c_int {
-    (isnan(x) != 0) as ::libc::c_int
-}
+pub use self::R_IsNA as ISNA;
+pub use self::R_IsNaN as ISNAN;
+pub use self::R_finite as R_FINITE;
 
-pub unsafe fn R_FINITE(x: ::libc::c_double) -> ::libc::c_int {
-    R_finite(x)
+#[cfg(test)]
+mod test {
+    use super::*;
+    #[test]
+    fn test_isnan() {
+        unsafe {
+            assert_eq!(isnan(1.), 0);
+            assert_eq!(isnan(::std::f64::NAN), 1);
+            assert_eq!(isnan(1.), ISNAN(1.));
+            assert_eq!(isnan(1.), ISNA(1.));
+        }
+    }
+    #[test]
+    fn test_finite() {
+        unsafe {
+            assert!(finite(0.) == 1);
+            assert_eq!(finite(0.), R_FINITE(0.));
+            assert_eq!(finite(0.), R_finite(0.));
+            let infinity = ::std::f64::INFINITY;
+            assert!(finite(infinity) == 0);
+            assert_eq!(finite(infinity), R_FINITE(infinity));
+            assert_eq!(finite(infinity), R_finite(infinity));
+        }
+    }
 }
