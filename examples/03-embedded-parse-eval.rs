@@ -4,9 +4,9 @@ use std::ptr;
 use std::env;
 use std::ffi::{CStr, CString};
 
-use libr::ffi::internals::*;
-use libr::ffi::embedded::{self, Rf_endEmbeddedR, Rf_initEmbeddedR};
-use libr::ffi::ext::parse::{ParseStatus, R_ParseVector};
+use libr::internals::*;
+use libr::embedded::{self, Rf_endEmbeddedR, Rf_initEmbeddedR};
+use libr::ext::parse::{ParseStatus, R_ParseVector};
 
 fn main() {
     if let Err(_) = env::var("R_HOME") {

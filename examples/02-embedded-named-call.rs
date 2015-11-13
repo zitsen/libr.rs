@@ -5,8 +5,8 @@ use std::ptr;
 use std::env;
 use std::ffi::{CStr, CString};
 
-use libr::ffi::internals::*;
-use libr::ffi::embedded::{self, Rf_endEmbeddedR, Rf_initEmbeddedR};
+use libr::internals::*;
+use libr::embedded::{self, Rf_endEmbeddedR, Rf_initEmbeddedR};
 
 unsafe fn source(path: *const ::libc::c_char) {
     let mut e: SEXP = Rf_lang2(Rf_install(CString::new("source").unwrap().into_raw()),

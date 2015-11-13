@@ -1,6 +1,12 @@
 extern crate libc;
 
-pub mod ffi;
-#[test]
-fn it_works() {
-}
+mod va_list;
+pub mod config;
+pub mod defines;
+pub mod ext;
+pub mod math;
+pub mod interface;
+pub mod internals;
+pub mod embedded;
+pub mod s;
+pub mod r;

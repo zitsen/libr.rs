@@ -1,8 +1,8 @@
 extern crate libr;
 use std::env;
 use std::ffi::CString;
-use libr::ffi::embedded::Rf_initialize_R;
-use libr::ffi::interface::*;
+use libr::embedded::Rf_initialize_R;
+use libr::interface::*;
 
 fn main() {
     if let Err(_) = env::var("R_HOME") {

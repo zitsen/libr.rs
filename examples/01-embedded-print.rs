@@ -3,8 +3,8 @@ extern crate libr;
 use std::env;
 use std::ffi::CString;
 
-use libr::ffi::embedded;
-use libr::ffi::internals::*;
+use libr::embedded;
+use libr::internals::*;
 
 fn main() {
     if let Err(_) = env::var("R_HOME") {
