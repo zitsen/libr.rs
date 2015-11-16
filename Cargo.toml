@@ -1,7 +1,17 @@
 [package]
 name = "libr"
 version = "0.1.0"
-authors = ["huolinhe"]
+authors = ["Huo Linhe <huolinhe@berrygenomics.com>"]
+license = "MIT"
+readme  = "README.md"
+homepage = "https://github.com/zisten/libr.rs"
+repository = "https://github.com/zisten/libr.rs.git"
+documentation = "http://zitsen.github.io/libr.rs/doc/libr/index.html"
+description = """
+A library for types and bingings to native C functions in libR,
+providing most of embedded-R and R math functions.
+"""
+keywords = ["R", "plot", "math", "graphics"]
 build = "build.rs"
 
 [dependencies]
