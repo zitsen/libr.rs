@@ -1,4 +1,11 @@
+libr
+====
+
 Native C types and bindings of libR.
+
+[![Build Status](https://travis-ci.org/zisten/libr.rs.svg?branch=master)](https://travis-ci.org/zisten/libr.rs)
+
+[Documentation](http://zisten.github.io/libr.rs/doc/libr/index)
 
 ## Usage
 
