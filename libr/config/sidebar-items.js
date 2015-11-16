@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ENABLE_NLS",""],["HAVE_ALLOCA_H",""],["HAVE_F77_UNDERSCORE",""],["HAVE_VISIBILITY_ATTRIBUTE",""],["IEEE_754",""],["SIZEOF_SIZE_T",""],["SUPPORT_MBCS",""],["SUPPORT_OPENMP",""],["SUPPORT_UTF8",""]]});

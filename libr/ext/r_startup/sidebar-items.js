@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["SA_TYPE",""]],"fn":[["R_DefParams",""],["R_SetParams",""],["R_SetWin32",""],["R_SizeFromEnv",""],["R_common_command_line",""],["R_set_command_line_arguments",""],["setup_Rmainloop",""]],"struct":[["structRstart",""]],"type":[["Rstart",""]]});

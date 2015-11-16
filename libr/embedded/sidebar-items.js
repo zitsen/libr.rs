@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["CleanEd",""],["R_CleanTempDir",""],["R_ReplDLLdo1",""],["R_ReplDLLinit",""],["R_RunExitFinalizers",""],["R_SaveGlobalEnv",""],["R_setStartTime",""],["Rf_KillAllDevices",""],["Rf_endEmbeddedR",""],["Rf_initEmbeddedR",""],["Rf_initialize_R",""],["fpu_setup",""],["setup_Rmainloop",""]],"static":[["R_DirtyImage",""],["R_TempDir",""]]});

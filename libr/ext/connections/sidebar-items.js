@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["R_ReadConnection",""],["R_WriteConnection",""],["R_new_custom_connection",""]],"struct":[["Struct_Rconn",""]],"type":[["Rconnection",""]]});

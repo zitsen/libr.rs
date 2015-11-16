@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["config","R_RCONFIG_H"],["embedded",""],["ext",""],["interface",""],["internals",""],["math",""],["r",""]]});

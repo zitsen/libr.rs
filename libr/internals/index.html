@@ -1,0 +1,3196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `internals` mod in crate `libr`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, internals">
+
+    <title>libr::internals - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>libr</a></p><script>window.sidebarCurrent = {name: 'internals', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>libr</a>::<wbr><a class='mod' href=''>internals</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-28208' class='srclink' href='../../src/libr/internals.rs.html#3-629' title='goto source code'>[src]</a></span></h1>
+<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/arith/index.html' title='libr::ext::arith'>arith</a>::*;</code></td></tr><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/boolean/index.html' title='libr::ext::boolean'>boolean</a>::*;</code></td></tr><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/complex/index.html' title='libr::ext::complex'>complex</a>::*;</code></td></tr><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/error/index.html' title='libr::ext::error'>error</a>::*;</code></td></tr><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/memory/index.html' title='libr::ext::memory'>memory</a>::*;</code></td></tr><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/utils/index.html' title='libr::ext::utils'>utils</a>::*;</code></td></tr><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/print/index.html' title='libr::ext::print'>print</a>::*;</code></td></tr><tr><td><code>pub use super::ext::<a class='mod' href='../../libr/ext/libextern/index.html' title='libr::ext::libextern'>libextern</a>::*;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.R_long_vec_hdr_t.html'
+                               title='libr::internals::R_long_vec_hdr_t'>R_long_vec_hdr_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.Struct_R_inpstream_st.html'
+                               title='libr::internals::Struct_R_inpstream_st'>Struct_R_inpstream_st</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.Struct_R_outpstream_st.html'
+                               title='libr::internals::Struct_R_outpstream_st'>Struct_R_outpstream_st</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.R_pstream_format_t.html'
+                               title='libr::internals::R_pstream_format_t'>R_pstream_format_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.Struct_R_allocator.html'
+                               title='libr::internals::Struct_R_allocator'>Struct_R_allocator</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.Struct_SEXPREC.html'
+                               title='libr::internals::Struct_SEXPREC'>Struct_SEXPREC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.cetype_t.html'
+                               title='libr::internals::cetype_t'>cetype_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='statics' class='section-header'><a href="#statics">Statics</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_BaseEnv.html'
+                               title='libr::internals::R_BaseEnv'>R_BaseEnv</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_BaseNamespace.html'
+                               title='libr::internals::R_BaseNamespace'>R_BaseNamespace</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_BlankString.html'
+                               title='libr::internals::R_BlankString'>R_BlankString</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_BraceSymbol.html'
+                               title='libr::internals::R_BraceSymbol'>R_BraceSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_Bracket2Symbol.html'
+                               title='libr::internals::R_Bracket2Symbol'>R_Bracket2Symbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_BracketSymbol.html'
+                               title='libr::internals::R_BracketSymbol'>R_BracketSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_ClassSymbol.html'
+                               title='libr::internals::R_ClassSymbol'>R_ClassSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_DeviceSymbol.html'
+                               title='libr::internals::R_DeviceSymbol'>R_DeviceSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_DimNamesSymbol.html'
+                               title='libr::internals::R_DimNamesSymbol'>R_DimNamesSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_DimSymbol.html'
+                               title='libr::internals::R_DimSymbol'>R_DimSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_DollarSymbol.html'
+                               title='libr::internals::R_DollarSymbol'>R_DollarSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_DotsSymbol.html'
+                               title='libr::internals::R_DotsSymbol'>R_DotsSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_DropSymbol.html'
+                               title='libr::internals::R_DropSymbol'>R_DropSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_EmptyEnv.html'
+                               title='libr::internals::R_EmptyEnv'>R_EmptyEnv</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_GlobalEnv.html'
+                               title='libr::internals::R_GlobalEnv'>R_GlobalEnv</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_LastvalueSymbol.html'
+                               title='libr::internals::R_LastvalueSymbol'>R_LastvalueSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_LevelsSymbol.html'
+                               title='libr::internals::R_LevelsSymbol'>R_LevelsSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_MissingArg.html'
+                               title='libr::internals::R_MissingArg'>R_MissingArg</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_ModeSymbol.html'
+                               title='libr::internals::R_ModeSymbol'>R_ModeSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_NaRmSymbol.html'
+                               title='libr::internals::R_NaRmSymbol'>R_NaRmSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_NaString.html'
+                               title='libr::internals::R_NaString'>R_NaString</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_NameSymbol.html'
+                               title='libr::internals::R_NameSymbol'>R_NameSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_NamesSymbol.html'
+                               title='libr::internals::R_NamesSymbol'>R_NamesSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_NamespaceRegistry.html'
+                               title='libr::internals::R_NamespaceRegistry'>R_NamespaceRegistry</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_NilValue.html'
+                               title='libr::internals::R_NilValue'>R_NilValue</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_PackageSymbol.html'
+                               title='libr::internals::R_PackageSymbol'>R_PackageSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_QuoteSymbol.html'
+                               title='libr::internals::R_QuoteSymbol'>R_QuoteSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_RestartToken.html'
+                               title='libr::internals::R_RestartToken'>R_RestartToken</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_RowNamesSymbol.html'
+                               title='libr::internals::R_RowNamesSymbol'>R_RowNamesSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_SeedsSymbol.html'
+                               title='libr::internals::R_SeedsSymbol'>R_SeedsSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_SourceSymbol.html'
+                               title='libr::internals::R_SourceSymbol'>R_SourceSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_Srcref.html'
+                               title='libr::internals::R_Srcref'>R_Srcref</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_TspSymbol.html'
+                               title='libr::internals::R_TspSymbol'>R_TspSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_UnboundValue.html'
+                               title='libr::internals::R_UnboundValue'>R_UnboundValue</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_dot_Method.html'
+                               title='libr::internals::R_dot_Method'>R_dot_Method</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_dot_defined.html'
+                               title='libr::internals::R_dot_defined'>R_dot_defined</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.R_dot_target.html'
+                               title='libr::internals::R_dot_target'>R_dot_target</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.ATTRIB.html'
+                               title='libr::internals::ATTRIB'>ATTRIB</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.BODY.html'
+                               title='libr::internals::BODY'>BODY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CAAR.html'
+                               title='libr::internals::CAAR'>CAAR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CAD4R.html'
+                               title='libr::internals::CAD4R'>CAD4R</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CADDDR.html'
+                               title='libr::internals::CADDDR'>CADDDR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CADDR.html'
+                               title='libr::internals::CADDR'>CADDR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CADR.html'
+                               title='libr::internals::CADR'>CADR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CAR.html'
+                               title='libr::internals::CAR'>CAR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CDAR.html'
+                               title='libr::internals::CDAR'>CDAR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CDDR.html'
+                               title='libr::internals::CDDR'>CDDR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CDR.html'
+                               title='libr::internals::CDR'>CDR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CLOENV.html'
+                               title='libr::internals::CLOENV'>CLOENV</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.COMPLEX.html'
+                               title='libr::internals::COMPLEX'>COMPLEX</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.CONS_NR.html'
+                               title='libr::internals::CONS_NR'>CONS_NR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.DDVAL.html'
+                               title='libr::internals::DDVAL'>DDVAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.DUPLICATE_ATTRIB.html'
+                               title='libr::internals::DUPLICATE_ATTRIB'>DUPLICATE_ATTRIB</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.ENCLOS.html'
+                               title='libr::internals::ENCLOS'>ENCLOS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.ENVFLAGS.html'
+                               title='libr::internals::ENVFLAGS'>ENVFLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.FORMALS.html'
+                               title='libr::internals::FORMALS'>FORMALS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.FRAME.html'
+                               title='libr::internals::FRAME'>FRAME</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.HASHASH.html'
+                               title='libr::internals::HASHASH'>HASHASH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.HASHTAB.html'
+                               title='libr::internals::HASHTAB'>HASHTAB</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.HASHVALUE.html'
+                               title='libr::internals::HASHVALUE'>HASHVALUE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.INTEGER.html'
+                               title='libr::internals::INTEGER'>INTEGER</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.INTERNAL.html'
+                               title='libr::internals::INTERNAL'>INTERNAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.IS_LONG_VEC.html'
+                               title='libr::internals::IS_LONG_VEC'>IS_LONG_VEC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.IS_S4_OBJECT.html'
+                               title='libr::internals::IS_S4_OBJECT'>IS_S4_OBJECT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.LENGTH.html'
+                               title='libr::internals::LENGTH'>LENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.LEVELS.html'
+                               title='libr::internals::LEVELS'>LEVELS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.LOGICAL.html'
+                               title='libr::internals::LOGICAL'>LOGICAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.MARK.html'
+                               title='libr::internals::MARK'>MARK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.MISSING.html'
+                               title='libr::internals::MISSING'>MISSING</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.NAMED.html'
+                               title='libr::internals::NAMED'>NAMED</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.OBJECT.html'
+                               title='libr::internals::OBJECT'>OBJECT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.PRCODE.html'
+                               title='libr::internals::PRCODE'>PRCODE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.PRENV.html'
+                               title='libr::internals::PRENV'>PRENV</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.PRINTNAME.html'
+                               title='libr::internals::PRINTNAME'>PRINTNAME</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.PRSEEN.html'
+                               title='libr::internals::PRSEEN'>PRSEEN</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.PRVALUE.html'
+                               title='libr::internals::PRVALUE'>PRVALUE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.RAW.html'
+                               title='libr::internals::RAW'>RAW</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.RDEBUG.html'
+                               title='libr::internals::RDEBUG'>RDEBUG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.REAL.html'
+                               title='libr::internals::REAL'>REAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.REFCNT.html'
+                               title='libr::internals::REFCNT'>REFCNT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.RSTEP.html'
+                               title='libr::internals::RSTEP'>RSTEP</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.RTRACE.html'
+                               title='libr::internals::RTRACE'>RTRACE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_BindingIsActive.html'
+                               title='libr::internals::R_BindingIsActive'>R_BindingIsActive</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_BindingIsLocked.html'
+                               title='libr::internals::R_BindingIsLocked'>R_BindingIsLocked</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_CHAR.html'
+                               title='libr::internals::R_CHAR'>R_CHAR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ClearExternalPtr.html'
+                               title='libr::internals::R_ClearExternalPtr'>R_ClearExternalPtr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ClosureExpr.html'
+                               title='libr::internals::R_ClosureExpr'>R_ClosureExpr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_EnvironmentIsLocked.html'
+                               title='libr::internals::R_EnvironmentIsLocked'>R_EnvironmentIsLocked</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ExecWithCleanup.html'
+                               title='libr::internals::R_ExecWithCleanup'>R_ExecWithCleanup</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ExternalPtrAddr.html'
+                               title='libr::internals::R_ExternalPtrAddr'>R_ExternalPtrAddr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ExternalPtrProtected.html'
+                               title='libr::internals::R_ExternalPtrProtected'>R_ExternalPtrProtected</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ExternalPtrTag.html'
+                               title='libr::internals::R_ExternalPtrTag'>R_ExternalPtrTag</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_FindNamespace.html'
+                               title='libr::internals::R_FindNamespace'>R_FindNamespace</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_FindPackageEnv.html'
+                               title='libr::internals::R_FindPackageEnv'>R_FindPackageEnv</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_FixupRHS.html'
+                               title='libr::internals::R_FixupRHS'>R_FixupRHS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_GetCurrentSrcref.html'
+                               title='libr::internals::R_GetCurrentSrcref'>R_GetCurrentSrcref</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_GetSrcFilename.html'
+                               title='libr::internals::R_GetSrcFilename'>R_GetSrcFilename</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_HasFancyBindings.html'
+                               title='libr::internals::R_HasFancyBindings'>R_HasFancyBindings</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_InitFileInPStream.html'
+                               title='libr::internals::R_InitFileInPStream'>R_InitFileInPStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_InitFileOutPStream.html'
+                               title='libr::internals::R_InitFileOutPStream'>R_InitFileOutPStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_InitInPStream.html'
+                               title='libr::internals::R_InitInPStream'>R_InitInPStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_InitOutPStream.html'
+                               title='libr::internals::R_InitOutPStream'>R_InitOutPStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_IsNamespaceEnv.html'
+                               title='libr::internals::R_IsNamespaceEnv'>R_IsNamespaceEnv</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_IsPackageEnv.html'
+                               title='libr::internals::R_IsPackageEnv'>R_IsPackageEnv</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_LockBinding.html'
+                               title='libr::internals::R_LockBinding'>R_LockBinding</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_LockEnvironment.html'
+                               title='libr::internals::R_LockEnvironment'>R_LockEnvironment</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_MakeActiveBinding.html'
+                               title='libr::internals::R_MakeActiveBinding'>R_MakeActiveBinding</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_MakeExternalPtr.html'
+                               title='libr::internals::R_MakeExternalPtr'>R_MakeExternalPtr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_MakeWeakRef.html'
+                               title='libr::internals::R_MakeWeakRef'>R_MakeWeakRef</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_MakeWeakRefC.html'
+                               title='libr::internals::R_MakeWeakRefC'>R_MakeWeakRefC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_NamespaceEnvSpec.html'
+                               title='libr::internals::R_NamespaceEnvSpec'>R_NamespaceEnvSpec</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_PackageEnvName.html'
+                               title='libr::internals::R_PackageEnvName'>R_PackageEnvName</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_PreserveObject.html'
+                               title='libr::internals::R_PreserveObject'>R_PreserveObject</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_PromiseExpr.html'
+                               title='libr::internals::R_PromiseExpr'>R_PromiseExpr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ProtectWithIndex.html'
+                               title='libr::internals::R_ProtectWithIndex'>R_ProtectWithIndex</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RegisterCFinalizer.html'
+                               title='libr::internals::R_RegisterCFinalizer'>R_RegisterCFinalizer</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RegisterCFinalizerEx.html'
+                               title='libr::internals::R_RegisterCFinalizerEx'>R_RegisterCFinalizerEx</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RegisterFinalizer.html'
+                               title='libr::internals::R_RegisterFinalizer'>R_RegisterFinalizer</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RegisterFinalizerEx.html'
+                               title='libr::internals::R_RegisterFinalizerEx'>R_RegisterFinalizerEx</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ReleaseObject.html'
+                               title='libr::internals::R_ReleaseObject'>R_ReleaseObject</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_Reprotect.html'
+                               title='libr::internals::R_Reprotect'>R_Reprotect</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RestoreHashCount.html'
+                               title='libr::internals::R_RestoreHashCount'>R_RestoreHashCount</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RunExitFinalizers.html'
+                               title='libr::internals::R_RunExitFinalizers'>R_RunExitFinalizers</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RunPendingFinalizers.html'
+                               title='libr::internals::R_RunPendingFinalizers'>R_RunPendingFinalizers</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_RunWeakRefFinalizer.html'
+                               title='libr::internals::R_RunWeakRefFinalizer'>R_RunWeakRefFinalizer</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_Serialize.html'
+                               title='libr::internals::R_Serialize'>R_Serialize</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_SetExternalPtrAddr.html'
+                               title='libr::internals::R_SetExternalPtrAddr'>R_SetExternalPtrAddr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_SetExternalPtrProtected.html'
+                               title='libr::internals::R_SetExternalPtrProtected'>R_SetExternalPtrProtected</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_SetExternalPtrTag.html'
+                               title='libr::internals::R_SetExternalPtrTag'>R_SetExternalPtrTag</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_ToplevelExec.html'
+                               title='libr::internals::R_ToplevelExec'>R_ToplevelExec</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_Unserialize.html'
+                               title='libr::internals::R_Unserialize'>R_Unserialize</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_WeakRefKey.html'
+                               title='libr::internals::R_WeakRefKey'>R_WeakRefKey</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_WeakRefValue.html'
+                               title='libr::internals::R_WeakRefValue'>R_WeakRefValue</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_XDRDecodeDouble.html'
+                               title='libr::internals::R_XDRDecodeDouble'>R_XDRDecodeDouble</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_XDRDecodeInteger.html'
+                               title='libr::internals::R_XDRDecodeInteger'>R_XDRDecodeInteger</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_XDREncodeDouble.html'
+                               title='libr::internals::R_XDREncodeDouble'>R_XDREncodeDouble</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_XDREncodeInteger.html'
+                               title='libr::internals::R_XDREncodeInteger'>R_XDREncodeInteger</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_bcDecode.html'
+                               title='libr::internals::R_bcDecode'>R_bcDecode</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_bcEncode.html'
+                               title='libr::internals::R_bcEncode'>R_bcEncode</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_check_class_and_super.html'
+                               title='libr::internals::R_check_class_and_super'>R_check_class_and_super</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_check_class_etc.html'
+                               title='libr::internals::R_check_class_etc'>R_check_class_etc</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_compute_identical.html'
+                               title='libr::internals::R_compute_identical'>R_compute_identical</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_curErrorBuf.html'
+                               title='libr::internals::R_curErrorBuf'>R_curErrorBuf</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_cycle_detected.html'
+                               title='libr::internals::R_cycle_detected'>R_cycle_detected</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_do_MAKE_CLASS.html'
+                               title='libr::internals::R_do_MAKE_CLASS'>R_do_MAKE_CLASS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_do_new_object.html'
+                               title='libr::internals::R_do_new_object'>R_do_new_object</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_do_slot.html'
+                               title='libr::internals::R_do_slot'>R_do_slot</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_do_slot_assign.html'
+                               title='libr::internals::R_do_slot_assign'>R_do_slot_assign</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_dot_Last.html'
+                               title='libr::internals::R_dot_Last'>R_dot_Last</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_envHasNoSpecialSymbols.html'
+                               title='libr::internals::R_envHasNoSpecialSymbols'>R_envHasNoSpecialSymbols</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_getClassDef.html'
+                               title='libr::internals::R_getClassDef'>R_getClassDef</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_has_slot.html'
+                               title='libr::internals::R_has_slot'>R_has_slot</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_initialize_bcode.html'
+                               title='libr::internals::R_initialize_bcode'>R_initialize_bcode</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_lsInternal.html'
+                               title='libr::internals::R_lsInternal'>R_lsInternal</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_orderVector.html'
+                               title='libr::internals::R_orderVector'>R_orderVector</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_signal_protect_error.html'
+                               title='libr::internals::R_signal_protect_error'>R_signal_protect_error</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_signal_reprotect_error.html'
+                               title='libr::internals::R_signal_reprotect_error'>R_signal_reprotect_error</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_signal_unprotect_error.html'
+                               title='libr::internals::R_signal_unprotect_error'>R_signal_unprotect_error</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_system.html'
+                               title='libr::internals::R_system'>R_system</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_tryEval.html'
+                               title='libr::internals::R_tryEval'>R_tryEval</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_tryEvalSilent.html'
+                               title='libr::internals::R_tryEvalSilent'>R_tryEvalSilent</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.R_unLockBinding.html'
+                               title='libr::internals::R_unLockBinding'>R_unLockBinding</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_CreateTag.html'
+                               title='libr::internals::Rf_CreateTag'>Rf_CreateTag</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_DropDims.html'
+                               title='libr::internals::Rf_DropDims'>Rf_DropDims</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetArrayDimnames.html'
+                               title='libr::internals::Rf_GetArrayDimnames'>Rf_GetArrayDimnames</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetColNames.html'
+                               title='libr::internals::Rf_GetColNames'>Rf_GetColNames</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetMatrixDimnames.html'
+                               title='libr::internals::Rf_GetMatrixDimnames'>Rf_GetMatrixDimnames</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetOption.html'
+                               title='libr::internals::Rf_GetOption'>Rf_GetOption</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetOption1.html'
+                               title='libr::internals::Rf_GetOption1'>Rf_GetOption1</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetOptionDigits.html'
+                               title='libr::internals::Rf_GetOptionDigits'>Rf_GetOptionDigits</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetOptionWidth.html'
+                               title='libr::internals::Rf_GetOptionWidth'>Rf_GetOptionWidth</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_GetRowNames.html'
+                               title='libr::internals::Rf_GetRowNames'>Rf_GetRowNames</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_NonNullStringMatch.html'
+                               title='libr::internals::Rf_NonNullStringMatch'>Rf_NonNullStringMatch</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_PairToVectorList.html'
+                               title='libr::internals::Rf_PairToVectorList'>Rf_PairToVectorList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_PrintValue.html'
+                               title='libr::internals::Rf_PrintValue'>Rf_PrintValue</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_S3Class.html'
+                               title='libr::internals::Rf_S3Class'>Rf_S3Class</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_ScalarComplex.html'
+                               title='libr::internals::Rf_ScalarComplex'>Rf_ScalarComplex</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_ScalarInteger.html'
+                               title='libr::internals::Rf_ScalarInteger'>Rf_ScalarInteger</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_ScalarLogical.html'
+                               title='libr::internals::Rf_ScalarLogical'>Rf_ScalarLogical</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_ScalarRaw.html'
+                               title='libr::internals::Rf_ScalarRaw'>Rf_ScalarRaw</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_ScalarReal.html'
+                               title='libr::internals::Rf_ScalarReal'>Rf_ScalarReal</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_ScalarString.html'
+                               title='libr::internals::Rf_ScalarString'>Rf_ScalarString</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_StringBlank.html'
+                               title='libr::internals::Rf_StringBlank'>Rf_StringBlank</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_VectorToPairList.html'
+                               title='libr::internals::Rf_VectorToPairList'>Rf_VectorToPairList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_acopy_string.html'
+                               title='libr::internals::Rf_acopy_string'>Rf_acopy_string</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_alloc3DArray.html'
+                               title='libr::internals::Rf_alloc3DArray'>Rf_alloc3DArray</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_allocArray.html'
+                               title='libr::internals::Rf_allocArray'>Rf_allocArray</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_allocList.html'
+                               title='libr::internals::Rf_allocList'>Rf_allocList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_allocMatrix.html'
+                               title='libr::internals::Rf_allocMatrix'>Rf_allocMatrix</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_allocS4Object.html'
+                               title='libr::internals::Rf_allocS4Object'>Rf_allocS4Object</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_allocSExp.html'
+                               title='libr::internals::Rf_allocSExp'>Rf_allocSExp</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_allocVector.html'
+                               title='libr::internals::Rf_allocVector'>Rf_allocVector</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_allocVector3.html'
+                               title='libr::internals::Rf_allocVector3'>Rf_allocVector3</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_any_duplicated.html'
+                               title='libr::internals::Rf_any_duplicated'>Rf_any_duplicated</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_any_duplicated3.html'
+                               title='libr::internals::Rf_any_duplicated3'>Rf_any_duplicated3</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_applyClosure.html'
+                               title='libr::internals::Rf_applyClosure'>Rf_applyClosure</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_arraySubscript.html'
+                               title='libr::internals::Rf_arraySubscript'>Rf_arraySubscript</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_asChar.html'
+                               title='libr::internals::Rf_asChar'>Rf_asChar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_asCharacterFactor.html'
+                               title='libr::internals::Rf_asCharacterFactor'>Rf_asCharacterFactor</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_asComplex.html'
+                               title='libr::internals::Rf_asComplex'>Rf_asComplex</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_asInteger.html'
+                               title='libr::internals::Rf_asInteger'>Rf_asInteger</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_asLogical.html'
+                               title='libr::internals::Rf_asLogical'>Rf_asLogical</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_asReal.html'
+                               title='libr::internals::Rf_asReal'>Rf_asReal</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_asS4.html'
+                               title='libr::internals::Rf_asS4'>Rf_asS4</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_classgets.html'
+                               title='libr::internals::Rf_classgets'>Rf_classgets</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_coerceVector.html'
+                               title='libr::internals::Rf_coerceVector'>Rf_coerceVector</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_conformable.html'
+                               title='libr::internals::Rf_conformable'>Rf_conformable</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_cons.html'
+                               title='libr::internals::Rf_cons'>Rf_cons</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_copyListMatrix.html'
+                               title='libr::internals::Rf_copyListMatrix'>Rf_copyListMatrix</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_copyMatrix.html'
+                               title='libr::internals::Rf_copyMatrix'>Rf_copyMatrix</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_copyMostAttrib.html'
+                               title='libr::internals::Rf_copyMostAttrib'>Rf_copyMostAttrib</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_copyVector.html'
+                               title='libr::internals::Rf_copyVector'>Rf_copyVector</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_countContexts.html'
+                               title='libr::internals::Rf_countContexts'>Rf_countContexts</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_defineVar.html'
+                               title='libr::internals::Rf_defineVar'>Rf_defineVar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_dimgets.html'
+                               title='libr::internals::Rf_dimgets'>Rf_dimgets</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_dimnamesgets.html'
+                               title='libr::internals::Rf_dimnamesgets'>Rf_dimnamesgets</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_duplicate.html'
+                               title='libr::internals::Rf_duplicate'>Rf_duplicate</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_duplicated.html'
+                               title='libr::internals::Rf_duplicated'>Rf_duplicated</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_elt.html'
+                               title='libr::internals::Rf_elt'>Rf_elt</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_errorcall.html'
+                               title='libr::internals::Rf_errorcall'>Rf_errorcall</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_eval.html'
+                               title='libr::internals::Rf_eval'>Rf_eval</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_findFun.html'
+                               title='libr::internals::Rf_findFun'>Rf_findFun</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_findVar.html'
+                               title='libr::internals::Rf_findVar'>Rf_findVar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_findVarInFrame.html'
+                               title='libr::internals::Rf_findVarInFrame'>Rf_findVarInFrame</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_findVarInFrame3.html'
+                               title='libr::internals::Rf_findVarInFrame3'>Rf_findVarInFrame3</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_getAttrib.html'
+                               title='libr::internals::Rf_getAttrib'>Rf_getAttrib</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_getCharCE.html'
+                               title='libr::internals::Rf_getCharCE'>Rf_getCharCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_gsetVar.html'
+                               title='libr::internals::Rf_gsetVar'>Rf_gsetVar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_inherits.html'
+                               title='libr::internals::Rf_inherits'>Rf_inherits</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_install.html'
+                               title='libr::internals::Rf_install'>Rf_install</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isArray.html'
+                               title='libr::internals::Rf_isArray'>Rf_isArray</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isBasicClass.html'
+                               title='libr::internals::Rf_isBasicClass'>Rf_isBasicClass</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isComplex.html'
+                               title='libr::internals::Rf_isComplex'>Rf_isComplex</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isEnvironment.html'
+                               title='libr::internals::Rf_isEnvironment'>Rf_isEnvironment</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isExpression.html'
+                               title='libr::internals::Rf_isExpression'>Rf_isExpression</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isFactor.html'
+                               title='libr::internals::Rf_isFactor'>Rf_isFactor</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isFrame.html'
+                               title='libr::internals::Rf_isFrame'>Rf_isFrame</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isFree.html'
+                               title='libr::internals::Rf_isFree'>Rf_isFree</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isFunction.html'
+                               title='libr::internals::Rf_isFunction'>Rf_isFunction</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isInteger.html'
+                               title='libr::internals::Rf_isInteger'>Rf_isInteger</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isLanguage.html'
+                               title='libr::internals::Rf_isLanguage'>Rf_isLanguage</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isList.html'
+                               title='libr::internals::Rf_isList'>Rf_isList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isLogical.html'
+                               title='libr::internals::Rf_isLogical'>Rf_isLogical</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isMatrix.html'
+                               title='libr::internals::Rf_isMatrix'>Rf_isMatrix</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isNewList.html'
+                               title='libr::internals::Rf_isNewList'>Rf_isNewList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isNull.html'
+                               title='libr::internals::Rf_isNull'>Rf_isNull</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isNumber.html'
+                               title='libr::internals::Rf_isNumber'>Rf_isNumber</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isNumeric.html'
+                               title='libr::internals::Rf_isNumeric'>Rf_isNumeric</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isObject.html'
+                               title='libr::internals::Rf_isObject'>Rf_isObject</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isOrdered.html'
+                               title='libr::internals::Rf_isOrdered'>Rf_isOrdered</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isPairList.html'
+                               title='libr::internals::Rf_isPairList'>Rf_isPairList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isPrimitive.html'
+                               title='libr::internals::Rf_isPrimitive'>Rf_isPrimitive</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isReal.html'
+                               title='libr::internals::Rf_isReal'>Rf_isReal</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isS4.html'
+                               title='libr::internals::Rf_isS4'>Rf_isS4</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isString.html'
+                               title='libr::internals::Rf_isString'>Rf_isString</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isSymbol.html'
+                               title='libr::internals::Rf_isSymbol'>Rf_isSymbol</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isTs.html'
+                               title='libr::internals::Rf_isTs'>Rf_isTs</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isUnordered.html'
+                               title='libr::internals::Rf_isUnordered'>Rf_isUnordered</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isUnsorted.html'
+                               title='libr::internals::Rf_isUnsorted'>Rf_isUnsorted</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isUserBinop.html'
+                               title='libr::internals::Rf_isUserBinop'>Rf_isUserBinop</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isValidString.html'
+                               title='libr::internals::Rf_isValidString'>Rf_isValidString</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isValidStringF.html'
+                               title='libr::internals::Rf_isValidStringF'>Rf_isValidStringF</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isVector.html'
+                               title='libr::internals::Rf_isVector'>Rf_isVector</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isVectorAtomic.html'
+                               title='libr::internals::Rf_isVectorAtomic'>Rf_isVectorAtomic</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isVectorList.html'
+                               title='libr::internals::Rf_isVectorList'>Rf_isVectorList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_isVectorizable.html'
+                               title='libr::internals::Rf_isVectorizable'>Rf_isVectorizable</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lang1.html'
+                               title='libr::internals::Rf_lang1'>Rf_lang1</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lang2.html'
+                               title='libr::internals::Rf_lang2'>Rf_lang2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lang3.html'
+                               title='libr::internals::Rf_lang3'>Rf_lang3</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lang4.html'
+                               title='libr::internals::Rf_lang4'>Rf_lang4</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lang5.html'
+                               title='libr::internals::Rf_lang5'>Rf_lang5</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lang6.html'
+                               title='libr::internals::Rf_lang6'>Rf_lang6</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lastElt.html'
+                               title='libr::internals::Rf_lastElt'>Rf_lastElt</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lazy_duplicate.html'
+                               title='libr::internals::Rf_lazy_duplicate'>Rf_lazy_duplicate</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lcons.html'
+                               title='libr::internals::Rf_lcons'>Rf_lcons</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_length.html'
+                               title='libr::internals::Rf_length'>Rf_length</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_lengthgets.html'
+                               title='libr::internals::Rf_lengthgets'>Rf_lengthgets</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_list1.html'
+                               title='libr::internals::Rf_list1'>Rf_list1</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_list2.html'
+                               title='libr::internals::Rf_list2'>Rf_list2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_list3.html'
+                               title='libr::internals::Rf_list3'>Rf_list3</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_list4.html'
+                               title='libr::internals::Rf_list4'>Rf_list4</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_list5.html'
+                               title='libr::internals::Rf_list5'>Rf_list5</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_listAppend.html'
+                               title='libr::internals::Rf_listAppend'>Rf_listAppend</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_match.html'
+                               title='libr::internals::Rf_match'>Rf_match</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_matchE.html'
+                               title='libr::internals::Rf_matchE'>Rf_matchE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_mkChar.html'
+                               title='libr::internals::Rf_mkChar'>Rf_mkChar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_mkCharCE.html'
+                               title='libr::internals::Rf_mkCharCE'>Rf_mkCharCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_mkCharLen.html'
+                               title='libr::internals::Rf_mkCharLen'>Rf_mkCharLen</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_mkCharLenCE.html'
+                               title='libr::internals::Rf_mkCharLenCE'>Rf_mkCharLenCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_mkNamed.html'
+                               title='libr::internals::Rf_mkNamed'>Rf_mkNamed</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_mkString.html'
+                               title='libr::internals::Rf_mkString'>Rf_mkString</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_namesgets.html'
+                               title='libr::internals::Rf_namesgets'>Rf_namesgets</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_ncols.html'
+                               title='libr::internals::Rf_ncols'>Rf_ncols</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_nlevels.html'
+                               title='libr::internals::Rf_nlevels'>Rf_nlevels</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_nrows.html'
+                               title='libr::internals::Rf_nrows'>Rf_nrows</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_nthcdr.html'
+                               title='libr::internals::Rf_nthcdr'>Rf_nthcdr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_pmatch.html'
+                               title='libr::internals::Rf_pmatch'>Rf_pmatch</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_protect.html'
+                               title='libr::internals::Rf_protect'>Rf_protect</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_psmatch.html'
+                               title='libr::internals::Rf_psmatch'>Rf_psmatch</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_reEnc.html'
+                               title='libr::internals::Rf_reEnc'>Rf_reEnc</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_setAttrib.html'
+                               title='libr::internals::Rf_setAttrib'>Rf_setAttrib</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_setSVector.html'
+                               title='libr::internals::Rf_setSVector'>Rf_setSVector</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_setVar.html'
+                               title='libr::internals::Rf_setVar'>Rf_setVar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_shallow_duplicate.html'
+                               title='libr::internals::Rf_shallow_duplicate'>Rf_shallow_duplicate</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_str2type.html'
+                               title='libr::internals::Rf_str2type'>Rf_str2type</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_substitute.html'
+                               title='libr::internals::Rf_substitute'>Rf_substitute</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_translateChar.html'
+                               title='libr::internals::Rf_translateChar'>Rf_translateChar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_translateChar0.html'
+                               title='libr::internals::Rf_translateChar0'>Rf_translateChar0</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_translateCharUTF8.html'
+                               title='libr::internals::Rf_translateCharUTF8'>Rf_translateCharUTF8</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_type2char.html'
+                               title='libr::internals::Rf_type2char'>Rf_type2char</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_type2str.html'
+                               title='libr::internals::Rf_type2str'>Rf_type2str</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_unprotect.html'
+                               title='libr::internals::Rf_unprotect'>Rf_unprotect</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_unprotect_ptr.html'
+                               title='libr::internals::Rf_unprotect_ptr'>Rf_unprotect_ptr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_warningcall.html'
+                               title='libr::internals::Rf_warningcall'>Rf_warningcall</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_warningcall_immediate.html'
+                               title='libr::internals::Rf_warningcall_immediate'>Rf_warningcall_immediate</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_xlength.html'
+                               title='libr::internals::Rf_xlength'>Rf_xlength</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.Rf_xlengthgets.html'
+                               title='libr::internals::Rf_xlengthgets'>Rf_xlengthgets</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETCAD4R.html'
+                               title='libr::internals::SETCAD4R'>SETCAD4R</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETCADDDR.html'
+                               title='libr::internals::SETCADDDR'>SETCADDDR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETCADDR.html'
+                               title='libr::internals::SETCADDR'>SETCADDR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETCADR.html'
+                               title='libr::internals::SETCADR'>SETCADR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETCAR.html'
+                               title='libr::internals::SETCAR'>SETCAR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETCDR.html'
+                               title='libr::internals::SETCDR'>SETCDR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETLENGTH.html'
+                               title='libr::internals::SETLENGTH'>SETLENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SETLEVELS.html'
+                               title='libr::internals::SETLEVELS'>SETLEVELS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_ATTRIB.html'
+                               title='libr::internals::SET_ATTRIB'>SET_ATTRIB</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_BODY.html'
+                               title='libr::internals::SET_BODY'>SET_BODY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_CLOENV.html'
+                               title='libr::internals::SET_CLOENV'>SET_CLOENV</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_DDVAL.html'
+                               title='libr::internals::SET_DDVAL'>SET_DDVAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_ENCLOS.html'
+                               title='libr::internals::SET_ENCLOS'>SET_ENCLOS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_ENVFLAGS.html'
+                               title='libr::internals::SET_ENVFLAGS'>SET_ENVFLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_FORMALS.html'
+                               title='libr::internals::SET_FORMALS'>SET_FORMALS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_FRAME.html'
+                               title='libr::internals::SET_FRAME'>SET_FRAME</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_HASHASH.html'
+                               title='libr::internals::SET_HASHASH'>SET_HASHASH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_HASHTAB.html'
+                               title='libr::internals::SET_HASHTAB'>SET_HASHTAB</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_HASHVALUE.html'
+                               title='libr::internals::SET_HASHVALUE'>SET_HASHVALUE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_INTERNAL.html'
+                               title='libr::internals::SET_INTERNAL'>SET_INTERNAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_MISSING.html'
+                               title='libr::internals::SET_MISSING'>SET_MISSING</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_NAMED.html'
+                               title='libr::internals::SET_NAMED'>SET_NAMED</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_OBJECT.html'
+                               title='libr::internals::SET_OBJECT'>SET_OBJECT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_PRCODE.html'
+                               title='libr::internals::SET_PRCODE'>SET_PRCODE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_PRENV.html'
+                               title='libr::internals::SET_PRENV'>SET_PRENV</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_PRINTNAME.html'
+                               title='libr::internals::SET_PRINTNAME'>SET_PRINTNAME</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_PRSEEN.html'
+                               title='libr::internals::SET_PRSEEN'>SET_PRSEEN</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_PRVALUE.html'
+                               title='libr::internals::SET_PRVALUE'>SET_PRVALUE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_RDEBUG.html'
+                               title='libr::internals::SET_RDEBUG'>SET_RDEBUG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_RSTEP.html'
+                               title='libr::internals::SET_RSTEP'>SET_RSTEP</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_RTRACE.html'
+                               title='libr::internals::SET_RTRACE'>SET_RTRACE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_S4_OBJECT.html'
+                               title='libr::internals::SET_S4_OBJECT'>SET_S4_OBJECT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_STRING_ELT.html'
+                               title='libr::internals::SET_STRING_ELT'>SET_STRING_ELT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_SYMVALUE.html'
+                               title='libr::internals::SET_SYMVALUE'>SET_SYMVALUE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_TAG.html'
+                               title='libr::internals::SET_TAG'>SET_TAG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_TRUELENGTH.html'
+                               title='libr::internals::SET_TRUELENGTH'>SET_TRUELENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_TYPEOF.html'
+                               title='libr::internals::SET_TYPEOF'>SET_TYPEOF</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SET_VECTOR_ELT.html'
+                               title='libr::internals::SET_VECTOR_ELT'>SET_VECTOR_ELT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.STRING_ELT.html'
+                               title='libr::internals::STRING_ELT'>STRING_ELT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.STRING_PTR.html'
+                               title='libr::internals::STRING_PTR'>STRING_PTR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SYMVALUE.html'
+                               title='libr::internals::SYMVALUE'>SYMVALUE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.TAG.html'
+                               title='libr::internals::TAG'>TAG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.TRUELENGTH.html'
+                               title='libr::internals::TRUELENGTH'>TRUELENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.TYPEOF.html'
+                               title='libr::internals::TYPEOF'>TYPEOF</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.UNSET_S4_OBJECT.html'
+                               title='libr::internals::UNSET_S4_OBJECT'>UNSET_S4_OBJECT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.VECTOR_ELT.html'
+                               title='libr::internals::VECTOR_ELT'>VECTOR_ELT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.VECTOR_PTR.html'
+                               title='libr::internals::VECTOR_PTR'>VECTOR_PTR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.XLENGTH.html'
+                               title='libr::internals::XLENGTH'>XLENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.XTRUELENGTH.html'
+                               title='libr::internals::XTRUELENGTH'>XTRUELENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.PROTECT_INDEX.html'
+                               title='libr::internals::PROTECT_INDEX'>PROTECT_INDEX</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.R_CFinalizer_t.html'
+                               title='libr::internals::R_CFinalizer_t'>R_CFinalizer_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.R_allocator_t.html'
+                               title='libr::internals::R_allocator_t'>R_allocator_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.R_inpstream_t.html'
+                               title='libr::internals::R_inpstream_t'>R_inpstream_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.R_len_t.html'
+                               title='libr::internals::R_len_t'>R_len_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.R_outpstream_t.html'
+                               title='libr::internals::R_outpstream_t'>R_outpstream_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.R_pstream_data_t.html'
+                               title='libr::internals::R_pstream_data_t'>R_pstream_data_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.R_xlen_t.html'
+                               title='libr::internals::R_xlen_t'>R_xlen_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.Rbyte.html'
+                               title='libr::internals::Rbyte'>Rbyte</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.SEXP.html'
+                               title='libr::internals::SEXP'>SEXP</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.SEXPTYPE.html'
+                               title='libr::internals::SEXPTYPE'>SEXPTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.ptrdiff_t.html'
+                               title='libr::internals::ptrdiff_t'>ptrdiff_t</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "libr";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

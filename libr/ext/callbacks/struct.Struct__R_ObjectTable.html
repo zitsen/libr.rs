@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Struct__R_ObjectTable` struct in crate `libr`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Struct__R_ObjectTable">
+
+    <title>libr::ext::callbacks::Struct__R_ObjectTable - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>libr</a>::<wbr><a href='../index.html'>ext</a>::<wbr><a href='index.html'>callbacks</a></p><script>window.sidebarCurrent = {name: 'Struct__R_ObjectTable', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>libr</a>::<wbr><a href='../index.html'>ext</a>::<wbr><a href='index.html'>callbacks</a>::<wbr><a class='struct' href=''>Struct__R_ObjectTable</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-3821' class='srclink' href='../../../src/libr/ext/callbacks.rs.html#85-98' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Struct__R_ObjectTable {
+    pub _type: <a class='type' href='../../../libc/type.c_int.html' title='libc::c_int'>c_int</a>,
+    pub cachedNames: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../../libc/unix/notbsd/linux/other/b64/x86_64/type.c_char.html' title='libc::unix::notbsd::linux::other::b64::x86_64::c_char'>c_char</a></a></a>,
+    pub active: <a class='type' href='../../../libr/ext/boolean/type.Rboolean.html' title='libr::ext::boolean::Rboolean'>Rboolean</a>,
+    pub exists: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_exists.html' title='libr::ext::callbacks::Rdb_exists'>Rdb_exists</a>,
+    pub get: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_get.html' title='libr::ext::callbacks::Rdb_get'>Rdb_get</a>,
+    pub remove: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_remove.html' title='libr::ext::callbacks::Rdb_remove'>Rdb_remove</a>,
+    pub assign: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_assign.html' title='libr::ext::callbacks::Rdb_assign'>Rdb_assign</a>,
+    pub objects: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_objects.html' title='libr::ext::callbacks::Rdb_objects'>Rdb_objects</a>,
+    pub canCache: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_canCache.html' title='libr::ext::callbacks::Rdb_canCache'>Rdb_canCache</a>,
+    pub onDetach: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_onDetach.html' title='libr::ext::callbacks::Rdb_onDetach'>Rdb_onDetach</a>,
+    pub onAttach: <a class='type' href='../../../libr/ext/callbacks/type.Rdb_onAttach.html' title='libr::ext::callbacks::Rdb_onAttach'>Rdb_onAttach</a>,
+    pub privateData: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='enum' href='../../../libc/enum.c_void.html' title='libc::c_void'>c_void</a></a>,
+}</pre><h2 class='fields'>Fields</h2>
+<table><tr class='stab '>
+                                  <td id='structfield._type'><code>_type</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.cachedNames'><code>cachedNames</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.active'><code>active</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.exists'><code>exists</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.get'><code>get</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.remove'><code>remove</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.assign'><code>assign</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.objects'><code>objects</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.canCache'><code>canCache</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.onDetach'><code>onDetach</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.onAttach'><code>onAttach</code></td><td></td></tr><tr class='stab '>
+                                  <td id='structfield.privateData'><code>privateData</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../../libr/ext/callbacks/struct.Struct__R_ObjectTable.html' title='libr::ext::callbacks::Struct__R_ObjectTable'>Struct__R_ObjectTable</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; Self</code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../../../libr/ext/callbacks/struct.Struct__R_ObjectTable.html' title='libr::ext::callbacks::Struct__R_ObjectTable'>Struct__R_ObjectTable</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; Self</code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../../libr/ext/callbacks/struct.Struct__R_ObjectTable.html' title='libr::ext::callbacks::Struct__R_ObjectTable'>Struct__R_ObjectTable</a></code></h3><div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "libr";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

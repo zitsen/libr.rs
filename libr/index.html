@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `libr` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, libr">
+
+    <title>libr - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'libr', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>libr</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-0' class='srclink' href='../src/libr/lib.rs.html#1-121' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Native C types and bindings of libR.</p>
+
+<h2 id="usage" class='section-header'><a
+                           href="#usage">Usage</a></h2>
+<p>First, add the following to your Cargo.toml:</p>
+
+<pre><code class="language-lang=toml">[dependencies]
+libr = 0.1
+</code></pre>
+
+<p>Next, add this to your crate root:</p>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libr</span>;</pre>
+
+<h2 id="what-is-libr?" class='section-header'><a
+                           href="#what-is-libr?">What is libr?</a></h2>
+<p>The primary purpose of this crate is to provide an easily
+interface for embedding R functions. This include type
+definitions (e.g. <code>SEXP</code>), constants(e.g. <code>PI</code>) as well as
+function headers(e.g. <code>Rf_initEmbeddedR</code>)</p>
+
+<p>The library now support 64bit Linux only, for the case
+I have no idea to how to test it in other system. I&#39;m
+a newer in <a href="http://rust-lang.org">Rust</a>, so it&#39;s so welcome
+for help and suggestions.</p>
+
+<h2 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h2>
+<h3 id="for-a-similar-native-r-like-app,-use-this:" class='section-header'><a
+                           href="#for-a-similar-native-r-like-app,-use-this:">For a similar native R-like app, use this:</a></h3><pre class='rust rust-example-rendered'>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libr</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>env</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CString</span>;
+<span class='kw'>use</span> <span class='ident'>libr</span>::<span class='ident'>embedded</span>::<span class='ident'>Rf_initialize_R</span>;
+<span class='kw'>use</span> <span class='ident'>libr</span>::<span class='ident'>interface</span>::<span class='op'>*</span>;
+
+<span class='kw'>fn</span> <span class='ident'>main</span>() {
+    <span class='kw'>if</span> <span class='kw'>let</span> <span class='prelude-val'>Err</span>(_) <span class='op'>=</span> <span class='ident'>env</span>::<span class='ident'>var</span>(<span class='string'>&quot;R_HOME&quot;</span>) {
+        <span class='macro'>panic</span><span class='macro'>!</span>(<span class='string'>&quot;Rembedded test need R_HOME be setted&quot;</span>);
+    }
+    <span class='kw'>let</span> <span class='ident'>args</span> <span class='op'>=</span> <span class='macro'>vec</span><span class='macro'>!</span>[<span class='string'>&quot;R&quot;</span>, <span class='string'>&quot;--no-save&quot;</span>];
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>args</span> <span class='op'>=</span> <span class='ident'>args</span>.<span class='ident'>into_iter</span>()
+       .<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>arg</span><span class='op'>|</span>
+           <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='ident'>arg</span>.<span class='ident'>as_bytes</span>()).<span class='ident'>unwrap</span>().<span class='ident'>into_raw</span>())
+       .<span class='ident'>collect</span>::<span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span>_<span class='op'>&gt;&gt;</span>();
+    <span class='kw'>unsafe</span> {
+       <span class='ident'>R_running_as_main_program</span> <span class='op'>=</span> <span class='number'>1</span>;
+       <span class='ident'>Rf_initialize_R</span>(<span class='ident'>args</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>i32</span>, <span class='ident'>args</span>.<span class='ident'>as_mut_ptr</span>());
+       <span class='ident'>Rf_mainloop</span>();
+       <span class='kw'>return</span>;
+    }
+}</pre>
+
+<h3 id="r-math-functions" class='section-header'><a
+                           href="#r-math-functions">R math functions</a></h3>
+<p>See details in <a href="math/index.html">math</a>.</p>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libr</span>;
+<span class='kw'>use</span> <span class='ident'>libr</span>::<span class='ident'>math</span>::<span class='ident'>R_pow</span>;
+
+<span class='kw'>fn</span> <span class='ident'>main</span>() {
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='kw'>unsafe</span> { <span class='ident'>R_pow</span>(<span class='number'>2.</span>, <span class='number'>3.</span>) }, <span class='number'>8.</span>);
+}</pre>
+
+<h3 id="embedded-r" class='section-header'><a
+                           href="#embedded-r">Embedded R</a></h3>
+<p>See details documents in <a href="embedded/index.html">embedded module</a>.</p>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libr</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>env</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CString</span>;
+
+<span class='kw'>use</span> <span class='ident'>libr</span>::<span class='ident'>internals</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>libr</span>::<span class='ident'>embedded</span> <span class='kw'>as</span> <span class='ident'>Rembedded</span>;
+<span class='kw'>use</span> <span class='ident'>libr</span>::<span class='ident'>ext</span>::<span class='ident'>parse</span>::{<span class='ident'>ParseStatus</span>, <span class='ident'>R_ParseVector</span>};
+
+<span class='kw'>fn</span> <span class='ident'>main</span>() {
+    <span class='kw'>if</span> <span class='kw'>let</span> <span class='prelude-val'>Err</span>(_) <span class='op'>=</span> <span class='ident'>env</span>::<span class='ident'>var</span>(<span class='string'>&quot;R_HOME&quot;</span>) {
+        <span class='macro'>panic</span><span class='macro'>!</span>(<span class='string'>&quot;Rembedded test need R_HOME be setted&quot;</span>);
+    }
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='macro'>vec</span><span class='macro'>!</span>[<span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='string'>&quot;R&quot;</span>).<span class='ident'>unwrap</span>().<span class='ident'>into_raw</span>(),
+                         <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='string'>&quot;--quiet&quot;</span>).<span class='ident'>unwrap</span>().<span class='ident'>into_raw</span>(),
+                         <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='string'>&quot;--no-save&quot;</span>).<span class='ident'>unwrap</span>().<span class='ident'>into_raw</span>()]);
+    <span class='kw'>unsafe</span> {
+        <span class='ident'>Rembedded</span>::<span class='ident'>Rf_initEmbeddedR</span>(<span class='ident'>s</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>i32</span>, <span class='ident'>s</span>.<span class='ident'>as_mut_ptr</span>());
+        <span class='comment'>// Plot</span>
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>status</span> <span class='op'>=</span> <span class='ident'>ParseStatus</span>::<span class='ident'>PARSE_OK</span>;
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>had_error</span> <span class='op'>=</span> <span class='number'>0</span>;
+        <span class='kw'>let</span> <span class='ident'>tmp</span> <span class='op'>=</span> <span class='ident'>Rf_protect</span>(<span class='ident'>Rf_mkString</span>(<span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='string'>&quot;{pdf(\&quot;03-plot.pdf\&quot;); plot(1:10, \
+                                                        pch=\&quot;+\&quot;); print(1:10)}&quot;</span>)
+                                            .<span class='ident'>unwrap</span>()
+                                            .<span class='ident'>into_raw</span>()));
+        <span class='kw'>let</span> <span class='ident'>e</span> <span class='op'>=</span> <span class='ident'>Rf_protect</span>(<span class='ident'>R_ParseVector</span>(<span class='ident'>tmp</span>, <span class='number'>1</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>status</span>, <span class='ident'>R_NilValue</span>));
+        <span class='ident'>Rf_PrintValue</span>(<span class='ident'>e</span>);
+        <span class='ident'>R_tryEval</span>(<span class='ident'>VECTOR_ELT</span>(<span class='ident'>e</span>, <span class='number'>0</span>), <span class='ident'>R_GlobalEnv</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>had_error</span>);
+        <span class='ident'>Rf_unprotect</span>(<span class='number'>2</span>);
+        <span class='ident'>Rembedded</span>::<span class='ident'>Rf_endEmbeddedR</span>(<span class='number'>0</span>);
+    }
+}</pre>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='config/index.html'
+                               title='libr::config'>config</a></td>
+                        <td class='docblock short'>
+                             <p>R_RCONFIG_H</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='embedded/index.html'
+                               title='libr::embedded'>embedded</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='ext/index.html'
+                               title='libr::ext'>ext</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='interface/index.html'
+                               title='libr::interface'>interface</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='internals/index.html'
+                               title='libr::internals'>internals</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='math/index.html'
+                               title='libr::math'>math</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='r/index.html'
+                               title='libr::r'>r</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "libr";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

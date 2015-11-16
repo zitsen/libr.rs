@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["R_IsNA",""],["R_IsNaN",""],["R_finite",""],["finite",""],["isnan",""]],"static":[["R_NaInt",""],["R_NaN",""],["R_NaReal",""],["R_NegInf",""],["R_PosInf",""]]});

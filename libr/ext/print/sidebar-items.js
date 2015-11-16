@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["REprintf",""],["REvprintf",""],["Rprintf",""],["Rvprintf",""]]});
