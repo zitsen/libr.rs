@@ -3,13 +3,13 @@ extern crate libr;
 use libc::c_int;
 use std::ptr;
 use std::env;
-use std::ffi::{CStr, CString};
+use std::ffi::CString;
 
 use libr::internals::*;
 use libr::embedded::{self, Rf_endEmbeddedR, Rf_initEmbeddedR};
 
 unsafe fn source(path: *const ::libc::c_char) {
-    let mut e: SEXP = Rf_lang2(Rf_install(CString::new("source").unwrap().into_raw()),
+    let e: SEXP = Rf_lang2(Rf_install(CString::new("source").unwrap().into_raw()),
                                Rf_mkString(path));
     Rf_protect(e);
     R_tryEval(e, R_GlobalEnv, ptr::null_mut::<libc::c_int>());
