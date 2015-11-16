@@ -5,20 +5,20 @@ Native C types and bindings of libR.
 
 [![Build Status](https://travis-ci.org/zisten/libr.rs.svg?branch=master)](https://travis-ci.org/zisten/libr.rs)
 
-[Documentation](http://zisten.github.io/libr.rs/doc/libr/index)
+[Documentation](http://zisten.github.io/libr.rs/libr/index.html)
 
 ## Usage
 
 First, add the following to your Cargo.toml:
 
-```lang=toml
+```toml
 [dependencies]
 libr = 0.1
 ```
 
 Next, add this to your crate root:
 
-```
+```rust
 extern crate libr;
 ```
 
@@ -38,7 +38,7 @@ for help and suggestions.
 
 ### For a similar native R-like app, use this:
 
-```
+```rust
 extern crate libr;
 use std::env;
 use std::ffi::CString;
@@ -67,7 +67,7 @@ fn main() {
 
 See details in [math](math/index.html).
 
-```
+```rust
 extern crate libr;
 use libr::math::R_pow;
 
@@ -80,7 +80,7 @@ fn main() {
 
 See details documents in [embedded module](embedded/index.html).
 
-```
+```rust
 extern crate libr;
 use std::env;
 use std::ffi::CString;
