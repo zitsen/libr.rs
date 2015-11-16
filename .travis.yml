@@ -1,0 +1,29 @@
+sudo: false
+language: rust
+rust:
+  - nightly
+  - beta
+  - stable
+before_script:
+  - |
+    pip install 'travis-cargo<0.2' --user &&
+    export PATH=$HOME/.local/bin:$PATH &&
+    export R_HOME=`R RHOME`
+script:
+  - |
+    cargo build &&
+    cargo test &&
+    make -C clap-tests test &&
+    travis-cargo --only stable doc -- &&
+    cargo build --no-default-features
+addons:
+  apt:
+    packages:
+      - r-base
+      - r-base-core
+      - r-base-dev
+
+after_success:
+  - |
+    travis-cargo --only stable doc-upload &&
+    travis-cargo --only stable coveralls --no-sudo
