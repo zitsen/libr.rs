@@ -13,7 +13,6 @@ script:
   - |
     cargo build &&
     cargo test &&
-    make -C clap-tests test &&
     travis-cargo --only stable doc -- &&
     cargo build --no-default-features
 addons:
