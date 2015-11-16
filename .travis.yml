@@ -21,6 +21,9 @@ addons:
       - r-base
       - r-base-core
       - r-base-dev
+      - libcurl4-openssl-dev
+      - libelf-dev
+      - libdw-dev
 
 after_success:
   - |
