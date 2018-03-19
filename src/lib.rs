@@ -112,6 +112,7 @@ extern crate libc;
 mod va_list;
 pub mod config;
 pub mod defines;
+#[allow(non_camel_case_types)]
 pub mod ext;
 pub mod math;
 pub mod interface;
@@ -119,3 +120,4 @@ pub mod internals;
 pub mod embedded;
 pub mod s;
 pub mod r;
+pub mod version;

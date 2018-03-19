@@ -15,7 +15,9 @@ keywords = ["R", "plot", "math", "graphics"]
 build = "build.rs"
 
 [dependencies]
-libc = "0.2"
+libc = "*"
 
 [build-dependencies]
-pkg-config = "0.3"
+pkg-config = "*"
+bindgen = "*"
+walkdir = "2"
