@@ -4,9 +4,7 @@ version = "0.1.0"
 authors = ["Huo Linhe <huolinhe@berrygenomics.com>"]
 license = "MIT"
 readme  = "README.md"
-homepage = "https://github.com/zisten/libr.rs"
 repository = "https://github.com/zisten/libr.rs.git"
-documentation = "http://zisten.github.io/libr.rs/libr/index.html"
 description = """
 A library for types and bingings to native C functions in libR,
 providing most of embedded-R and R math functions.
