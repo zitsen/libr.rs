@@ -1,7 +1,7 @@
 [package]
 name = "libr"
 version = "0.1.1-alpha.0"
-authors = ["Huo Linhe <huolinhe@berrygenomics.com>"]
+authors = ["Huo Linhe <linhehuo@gmail.com>"]
 license = "MIT"
 readme  = "README.md"
 repository = "https://github.com/zisten/libr.rs.git"
