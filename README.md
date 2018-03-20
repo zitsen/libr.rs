@@ -1,6 +1,8 @@
 libr
 ====
 
+**NOTE: Now I cannot publish libr to its crate name because crates.io says I'm not the owner. The crate name will be changed when I will.**
+
 Native C types and bindings of libR.
 
 [![Build Status](https://travis-ci.org/zisten/libr.rs.svg?branch=master)](https://travis-ci.org/zisten/libr.rs)
