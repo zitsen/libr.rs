@@ -5,8 +5,8 @@ pub use libc::FILE;
 
 #[allow(non_snake_case)]
 #[allow(non_upper_case_globals)]
-#[link(name = "R")]
-extern {
+
+extern "C" {
     pub static mut R_Interactive: Rboolean;
     pub static mut R_Slave: Rboolean;
     pub static mut R_DirtyImage: ::libc::c_int;
@@ -24,8 +24,8 @@ extern {
     pub static mut R_CStackStart: ::libc::uintptr_t;
     pub static mut R_running_as_main_program: ::libc::c_int;
 }
-#[link(name = "R")]
-extern {
+
+extern "C" {
     pub fn R_RestoreGlobalEnv() -> ();
     pub fn R_RestoreGlobalEnvFromFile(arg1: *const ::libc::c_char, arg2: Rboolean) -> ();
     pub fn R_SaveGlobalEnv() -> ();

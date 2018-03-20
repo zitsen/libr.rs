@@ -33,16 +33,15 @@
 //! }
 //! ```
 
-#[link(name = "R")]
-extern {
+extern "C" {
     pub static mut R_NaN: ::libc::c_double;
     pub static mut R_PosInf: ::libc::c_double;
     pub static mut R_NegInf: ::libc::c_double;
     pub static mut R_NaReal: ::libc::c_double;
     pub static mut R_NaInt: ::libc::c_int;
 }
-#[link(name = "R")]
-extern {
+
+extern "C" {
     pub fn isnan(__value: ::libc::c_double) -> ::libc::c_int;
     pub fn finite(__value: ::libc::c_double) -> ::libc::c_int;
     pub fn R_IsNA(arg1: ::libc::c_double) -> ::libc::c_int;
@@ -53,4 +52,3 @@ extern {
 pub use self::R_IsNA as ISNA;
 pub use self::R_IsNaN as ISNAN;
 pub use self::R_finite as R_FINITE;
-

@@ -2,13 +2,12 @@
 
 pub use super::ext::boolean::*;
 
-#[link(name = "R")]
-extern {
+extern "C" {
     pub static mut R_DirtyImage: ::libc::c_int;
     pub static mut R_TempDir: *mut ::libc::c_char;
 }
-#[link(name = "R")]
-extern {
+
+extern "C" {
     pub fn Rf_initEmbeddedR(argc: ::libc::c_int, argv: *mut *mut ::libc::c_char) -> ::libc::c_int;
     pub fn Rf_endEmbeddedR(fatal: ::libc::c_int) -> ();
     pub fn Rf_initialize_R(ac: ::libc::c_int, av: *mut *mut ::libc::c_char) -> ::libc::c_int;

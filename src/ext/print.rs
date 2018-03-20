@@ -2,8 +2,7 @@
 
 use super::super::va_list::va_list;
 
-#[link(name = "R")]
-extern {
+extern "C" {
     pub fn Rprintf(arg1: *const ::libc::c_char, ...) -> ();
     pub fn REprintf(arg1: *const ::libc::c_char, ...) -> ();
     pub fn Rvprintf(arg1: *const ::libc::c_char, arg2: va_list) -> ();

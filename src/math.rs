@@ -57,72 +57,82 @@ pub unsafe fn log1p(x: c_double) -> c_double {
 }
 
 #[link(name = "R")]
-extern {
+extern "C" {
     pub fn Rlog1p(x: c_double) -> ::libc::c_double;
     pub fn R_pow(x: c_double, y: ::libc::c_double) -> ::libc::c_double;
     pub fn R_pow_di(arg1: ::libc::c_double, arg2: ::libc::c_int) -> ::libc::c_double;
     pub fn norm_rand() -> ::libc::c_double;
     pub fn unif_rand() -> ::libc::c_double;
     pub fn exp_rand() -> ::libc::c_double;
-    pub fn Rf_dnorm4(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_pnorm5(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qnorm5(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
+    pub fn Rf_dnorm4(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pnorm5(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qnorm5(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rnorm(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_pnorm_both(arg1: ::libc::c_double,
-                         arg2: *mut ::libc::c_double,
-                         arg3: *mut ::libc::c_double,
-                         arg4: ::libc::c_int,
-                         arg5: ::libc::c_int)
-                         -> ();
-    pub fn Rf_dunif(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_double,
-                    arg4: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_punif(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_double,
-                    arg4: ::libc::c_int,
-                    arg5: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_qunif(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_double,
-                    arg4: ::libc::c_int,
-                    arg5: ::libc::c_int)
-                    -> ::libc::c_double;
+    pub fn Rf_pnorm_both(
+        arg1: ::libc::c_double,
+        arg2: *mut ::libc::c_double,
+        arg3: *mut ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ();
+    pub fn Rf_dunif(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_punif(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qunif(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_runif(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dgamma(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_pgamma(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qgamma(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
+    pub fn Rf_dgamma(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pgamma(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qgamma(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rgamma(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_log1pmx(arg1: ::libc::c_double) -> ::libc::c_double;
     pub fn log1pexp(arg1: ::libc::c_double) -> ::libc::c_double;
@@ -130,419 +140,490 @@ extern {
     pub fn Rf_logspace_add(logx: ::libc::c_double, logy: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_logspace_sub(logx: ::libc::c_double, logy: ::libc::c_double) -> ::libc::c_double;
     pub fn logspace_sum(arg1: *mut ::libc::c_double, arg2: ::libc::c_int) -> ::libc::c_double;
-    pub fn Rf_dbeta(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_double,
-                    arg4: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_pbeta(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_double,
-                    arg4: ::libc::c_int,
-                    arg5: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_qbeta(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_double,
-                    arg4: ::libc::c_int,
-                    arg5: ::libc::c_int)
-                    -> ::libc::c_double;
+    pub fn Rf_dbeta(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pbeta(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qbeta(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rbeta(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dlnorm(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_plnorm(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qlnorm(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
+    pub fn Rf_dlnorm(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_plnorm(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qlnorm(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rlnorm(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dchisq(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_pchisq(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_int,
-                     arg4: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qchisq(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_int,
-                     arg4: ::libc::c_int)
-                     -> ::libc::c_double;
+    pub fn Rf_dchisq(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pchisq(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qchisq(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rchisq(arg1: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dnchisq(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_pnchisq(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_qnchisq(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
+    pub fn Rf_dnchisq(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pnchisq(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qnchisq(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rnchisq(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_df(arg1: ::libc::c_double,
-                 arg2: ::libc::c_double,
-                 arg3: ::libc::c_double,
-                 arg4: ::libc::c_int)
-                 -> ::libc::c_double;
-    pub fn Rf_pf(arg1: ::libc::c_double,
-                 arg2: ::libc::c_double,
-                 arg3: ::libc::c_double,
-                 arg4: ::libc::c_int,
-                 arg5: ::libc::c_int)
-                 -> ::libc::c_double;
-    pub fn Rf_qf(arg1: ::libc::c_double,
-                 arg2: ::libc::c_double,
-                 arg3: ::libc::c_double,
-                 arg4: ::libc::c_int,
-                 arg5: ::libc::c_int)
-                 -> ::libc::c_double;
+    pub fn Rf_df(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pf(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qf(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rf(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dt(arg1: ::libc::c_double,
-                 arg2: ::libc::c_double,
-                 arg3: ::libc::c_int)
-                 -> ::libc::c_double;
-    pub fn Rf_pt(arg1: ::libc::c_double,
-                 arg2: ::libc::c_double,
-                 arg3: ::libc::c_int,
-                 arg4: ::libc::c_int)
-                 -> ::libc::c_double;
-    pub fn Rf_qt(arg1: ::libc::c_double,
-                 arg2: ::libc::c_double,
-                 arg3: ::libc::c_int,
-                 arg4: ::libc::c_int)
-                 -> ::libc::c_double;
+    pub fn Rf_dt(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pt(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qt(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rt(arg1: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dbinom_raw(x: ::libc::c_double,
-                         n: ::libc::c_double,
-                         p: ::libc::c_double,
-                         q: ::libc::c_double,
-                         give_log: ::libc::c_int)
-                         -> ::libc::c_double;
-    pub fn Rf_dbinom(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_pbinom(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qbinom(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
+    pub fn Rf_dbinom_raw(
+        x: ::libc::c_double,
+        n: ::libc::c_double,
+        p: ::libc::c_double,
+        q: ::libc::c_double,
+        give_log: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_dbinom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pbinom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qbinom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rbinom(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_rmultinom(arg1: ::libc::c_int,
-                        arg2: *mut ::libc::c_double,
-                        arg3: ::libc::c_int,
-                        arg4: *mut ::libc::c_int)
-                        -> ();
-    pub fn Rf_dcauchy(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_pcauchy(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_qcauchy(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
+    pub fn Rf_rmultinom(
+        arg1: ::libc::c_int,
+        arg2: *mut ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: *mut ::libc::c_int,
+    ) -> ();
+    pub fn Rf_dcauchy(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pcauchy(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qcauchy(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rcauchy(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dexp(arg1: ::libc::c_double,
-                   arg2: ::libc::c_double,
-                   arg3: ::libc::c_int)
-                   -> ::libc::c_double;
-    pub fn Rf_pexp(arg1: ::libc::c_double,
-                   arg2: ::libc::c_double,
-                   arg3: ::libc::c_int,
-                   arg4: ::libc::c_int)
-                   -> ::libc::c_double;
-    pub fn Rf_qexp(arg1: ::libc::c_double,
-                   arg2: ::libc::c_double,
-                   arg3: ::libc::c_int,
-                   arg4: ::libc::c_int)
-                   -> ::libc::c_double;
+    pub fn Rf_dexp(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pexp(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qexp(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rexp(arg1: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dgeom(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_pgeom(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_int,
-                    arg4: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_qgeom(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_int,
-                    arg4: ::libc::c_int)
-                    -> ::libc::c_double;
+    pub fn Rf_dgeom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pgeom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qgeom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rgeom(arg1: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dhyper(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_phyper(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int,
-                     arg6: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qhyper(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int,
-                     arg6: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_rhyper(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double)
-                     -> ::libc::c_double;
-    pub fn Rf_dnbinom(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_pnbinom(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_qnbinom(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
+    pub fn Rf_dhyper(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_phyper(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qhyper(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_rhyper(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+    ) -> ::libc::c_double;
+    pub fn Rf_dnbinom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pnbinom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qnbinom(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rnbinom(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dnbinom_mu(arg1: ::libc::c_double,
-                         arg2: ::libc::c_double,
-                         arg3: ::libc::c_double,
-                         arg4: ::libc::c_int)
-                         -> ::libc::c_double;
-    pub fn Rf_pnbinom_mu(arg1: ::libc::c_double,
-                         arg2: ::libc::c_double,
-                         arg3: ::libc::c_double,
-                         arg4: ::libc::c_int,
-                         arg5: ::libc::c_int)
-                         -> ::libc::c_double;
-    pub fn Rf_qnbinom_mu(arg1: ::libc::c_double,
-                         arg2: ::libc::c_double,
-                         arg3: ::libc::c_double,
-                         arg4: ::libc::c_int,
-                         arg5: ::libc::c_int)
-                         -> ::libc::c_double;
+    pub fn Rf_dnbinom_mu(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pnbinom_mu(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qnbinom_mu(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rnbinom_mu(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dpois_raw(arg1: ::libc::c_double,
-                        arg2: ::libc::c_double,
-                        arg3: ::libc::c_int)
-                        -> ::libc::c_double;
-    pub fn Rf_dpois(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_ppois(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_int,
-                    arg4: ::libc::c_int)
-                    -> ::libc::c_double;
-    pub fn Rf_qpois(arg1: ::libc::c_double,
-                    arg2: ::libc::c_double,
-                    arg3: ::libc::c_int,
-                    arg4: ::libc::c_int)
-                    -> ::libc::c_double;
+    pub fn Rf_dpois_raw(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_dpois(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_ppois(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qpois(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rpois(arg1: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dweibull(arg1: ::libc::c_double,
-                       arg2: ::libc::c_double,
-                       arg3: ::libc::c_double,
-                       arg4: ::libc::c_int)
-                       -> ::libc::c_double;
-    pub fn Rf_pweibull(arg1: ::libc::c_double,
-                       arg2: ::libc::c_double,
-                       arg3: ::libc::c_double,
-                       arg4: ::libc::c_int,
-                       arg5: ::libc::c_int)
-                       -> ::libc::c_double;
-    pub fn Rf_qweibull(arg1: ::libc::c_double,
-                       arg2: ::libc::c_double,
-                       arg3: ::libc::c_double,
-                       arg4: ::libc::c_int,
-                       arg5: ::libc::c_int)
-                       -> ::libc::c_double;
+    pub fn Rf_dweibull(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pweibull(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qweibull(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rweibull(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dlogis(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_plogis(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qlogis(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_int,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
+    pub fn Rf_dlogis(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_plogis(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qlogis(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rlogis(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dnbeta(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_pnbeta(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int,
-                     arg6: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qnbeta(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int,
-                     arg6: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_rnbeta(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double)
-                     -> ::libc::c_double;
-    pub fn Rf_dnf(arg1: ::libc::c_double,
-                  arg2: ::libc::c_double,
-                  arg3: ::libc::c_double,
-                  arg4: ::libc::c_double,
-                  arg5: ::libc::c_int)
-                  -> ::libc::c_double;
-    pub fn Rf_pnf(arg1: ::libc::c_double,
-                  arg2: ::libc::c_double,
-                  arg3: ::libc::c_double,
-                  arg4: ::libc::c_double,
-                  arg5: ::libc::c_int,
-                  arg6: ::libc::c_int)
-                  -> ::libc::c_double;
-    pub fn Rf_qnf(arg1: ::libc::c_double,
-                  arg2: ::libc::c_double,
-                  arg3: ::libc::c_double,
-                  arg4: ::libc::c_double,
-                  arg5: ::libc::c_int,
-                  arg6: ::libc::c_int)
-                  -> ::libc::c_double;
-    pub fn Rf_dnt(arg1: ::libc::c_double,
-                  arg2: ::libc::c_double,
-                  arg3: ::libc::c_double,
-                  arg4: ::libc::c_int)
-                  -> ::libc::c_double;
-    pub fn Rf_pnt(arg1: ::libc::c_double,
-                  arg2: ::libc::c_double,
-                  arg3: ::libc::c_double,
-                  arg4: ::libc::c_int,
-                  arg5: ::libc::c_int)
-                  -> ::libc::c_double;
-    pub fn Rf_qnt(arg1: ::libc::c_double,
-                  arg2: ::libc::c_double,
-                  arg3: ::libc::c_double,
-                  arg4: ::libc::c_int,
-                  arg5: ::libc::c_int)
-                  -> ::libc::c_double;
-    pub fn Rf_ptukey(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int,
-                     arg6: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_qtukey(arg1: ::libc::c_double,
-                     arg2: ::libc::c_double,
-                     arg3: ::libc::c_double,
-                     arg4: ::libc::c_double,
-                     arg5: ::libc::c_int,
-                     arg6: ::libc::c_int)
-                     -> ::libc::c_double;
-    pub fn Rf_dwilcox(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_pwilcox(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
-    pub fn Rf_qwilcox(arg1: ::libc::c_double,
-                      arg2: ::libc::c_double,
-                      arg3: ::libc::c_double,
-                      arg4: ::libc::c_int,
-                      arg5: ::libc::c_int)
-                      -> ::libc::c_double;
+    pub fn Rf_dnbeta(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pnbeta(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qnbeta(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_rnbeta(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+    ) -> ::libc::c_double;
+    pub fn Rf_dnf(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pnf(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qnf(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_dnt(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pnt(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qnt(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_ptukey(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qtukey(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_double,
+        arg5: ::libc::c_int,
+        arg6: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_dwilcox(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_pwilcox(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qwilcox(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: ::libc::c_int,
+        arg5: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rwilcox(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_dsignrank(arg1: ::libc::c_double,
-                        arg2: ::libc::c_double,
-                        arg3: ::libc::c_int)
-                        -> ::libc::c_double;
-    pub fn Rf_psignrank(arg1: ::libc::c_double,
-                        arg2: ::libc::c_double,
-                        arg3: ::libc::c_int,
-                        arg4: ::libc::c_int)
-                        -> ::libc::c_double;
-    pub fn Rf_qsignrank(arg1: ::libc::c_double,
-                        arg2: ::libc::c_double,
-                        arg3: ::libc::c_int,
-                        arg4: ::libc::c_int)
-                        -> ::libc::c_double;
+    pub fn Rf_dsignrank(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_psignrank(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
+    pub fn Rf_qsignrank(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> ::libc::c_double;
     pub fn Rf_rsignrank(arg1: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_gammafn(arg1: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_lgammafn(arg1: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_lgammafn_sign(arg1: ::libc::c_double, arg2: *mut ::libc::c_int) -> ::libc::c_double;
-    pub fn Rf_dpsifn(arg1: ::libc::c_double,
-                     arg2: ::libc::c_int,
-                     arg3: ::libc::c_int,
-                     arg4: ::libc::c_int,
-                     arg5: *mut ::libc::c_double,
-                     arg6: *mut ::libc::c_int,
-                     arg7: *mut ::libc::c_int)
-                     -> ();
+    pub fn Rf_dpsifn(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_int,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+        arg5: *mut ::libc::c_double,
+        arg6: *mut ::libc::c_int,
+        arg7: *mut ::libc::c_int,
+    ) -> ();
     pub fn Rf_psigamma(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_digamma(arg1: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_trigamma(arg1: ::libc::c_double) -> ::libc::c_double;
@@ -552,34 +633,40 @@ extern {
     pub fn Rf_lbeta(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_choose(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_lchoose(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_bessel_i(arg1: ::libc::c_double,
-                       arg2: ::libc::c_double,
-                       arg3: ::libc::c_double)
-                       -> ::libc::c_double;
+    pub fn Rf_bessel_i(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+    ) -> ::libc::c_double;
     pub fn Rf_bessel_j(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_bessel_k(arg1: ::libc::c_double,
-                       arg2: ::libc::c_double,
-                       arg3: ::libc::c_double)
-                       -> ::libc::c_double;
+    pub fn Rf_bessel_k(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+    ) -> ::libc::c_double;
     pub fn Rf_bessel_y(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
-    pub fn Rf_bessel_i_ex(arg1: ::libc::c_double,
-                          arg2: ::libc::c_double,
-                          arg3: ::libc::c_double,
-                          arg4: *mut ::libc::c_double)
-                          -> ::libc::c_double;
-    pub fn Rf_bessel_j_ex(arg1: ::libc::c_double,
-                          arg2: ::libc::c_double,
-                          arg3: *mut ::libc::c_double)
-                          -> ::libc::c_double;
-    pub fn Rf_bessel_k_ex(arg1: ::libc::c_double,
-                          arg2: ::libc::c_double,
-                          arg3: ::libc::c_double,
-                          arg4: *mut ::libc::c_double)
-                          -> ::libc::c_double;
-    pub fn Rf_bessel_y_ex(arg1: ::libc::c_double,
-                          arg2: ::libc::c_double,
-                          arg3: *mut ::libc::c_double)
-                          -> ::libc::c_double;
+    pub fn Rf_bessel_i_ex(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: *mut ::libc::c_double,
+    ) -> ::libc::c_double;
+    pub fn Rf_bessel_j_ex(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: *mut ::libc::c_double,
+    ) -> ::libc::c_double;
+    pub fn Rf_bessel_k_ex(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: ::libc::c_double,
+        arg4: *mut ::libc::c_double,
+    ) -> ::libc::c_double;
+    pub fn Rf_bessel_y_ex(
+        arg1: ::libc::c_double,
+        arg2: ::libc::c_double,
+        arg3: *mut ::libc::c_double,
+    ) -> ::libc::c_double;
     pub fn Rf_pythag(arg1: ::libc::c_double, arg2: ::libc::c_double) -> ::libc::c_double;
     pub fn Rf_imax2(arg1: ::libc::c_int, arg2: ::libc::c_int) -> ::libc::c_int;
     pub fn Rf_imin2(arg1: ::libc::c_int, arg2: ::libc::c_int) -> ::libc::c_int;

@@ -37,14 +37,16 @@ impl ::std::default::Default for R_long_vec_hdr_t {
 pub type SEXPTYPE = ::libc::c_uint;
 
 #[allow(non_camel_case_types)]
-pub enum Struct_SEXPREC { }
+pub enum Struct_SEXPREC {
+}
 pub type SEXP = *mut Struct_SEXPREC;
 
 #[allow(non_camel_case_types)]
 pub type PROTECT_INDEX = ::libc::c_int;
 
 #[allow(non_camel_case_types)]
-pub enum Struct_R_allocator { }
+pub enum Struct_R_allocator {
+}
 #[allow(non_camel_case_types)]
 pub type R_allocator_t = Struct_R_allocator;
 
@@ -61,8 +63,7 @@ pub enum cetype_t {
 }
 
 #[allow(non_camel_case_types)]
-pub type R_CFinalizer_t =
-    ::std::option::Option<extern "C" fn(arg1: SEXP) -> ()>;
+pub type R_CFinalizer_t = ::std::option::Option<extern "C" fn(arg1: SEXP) -> ()>;
 #[allow(non_camel_case_types)]
 pub type R_pstream_data_t = *mut ::libc::c_void;
 
@@ -85,17 +86,12 @@ pub struct Struct_R_outpstream_st {
     pub data: R_pstream_data_t,
     pub _type: R_pstream_format_t,
     pub version: ::libc::c_int,
-    pub OutChar: ::std::option::Option<extern "C" fn(arg1: R_outpstream_t,
-                                                     arg2: ::libc::c_int)
-                                           -> ()>,
-    pub OutBytes: ::std::option::Option<extern "C" fn(arg1: R_outpstream_t,
-                                                      arg2:
-                                                          *mut ::libc::c_void,
-                                                      arg3: ::libc::c_int)
-                                            -> ()>,
-    pub OutPersistHookFunc: ::std::option::Option<extern "C" fn(arg1: SEXP,
-                                                                arg2: SEXP)
-                                                      -> SEXP>,
+    pub OutChar:
+        ::std::option::Option<extern "C" fn(arg1: R_outpstream_t, arg2: ::libc::c_int) -> ()>,
+    pub OutBytes: ::std::option::Option<
+        extern "C" fn(arg1: R_outpstream_t, arg2: *mut ::libc::c_void, arg3: ::libc::c_int) -> (),
+    >,
+    pub OutPersistHookFunc: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
     pub OutPersistHookData: SEXP,
 }
 impl ::std::clone::Clone for Struct_R_outpstream_st {
@@ -117,16 +113,11 @@ pub type R_inpstream_t = *mut Struct_R_inpstream_st;
 pub struct Struct_R_inpstream_st {
     pub data: R_pstream_data_t,
     pub _type: R_pstream_format_t,
-    pub InChar: ::std::option::Option<extern "C" fn(arg1: R_inpstream_t)
-                                          -> ::libc::c_int>,
-    pub InBytes: ::std::option::Option<extern "C" fn(arg1: R_inpstream_t,
-                                                     arg2:
-                                                         *mut ::libc::c_void,
-                                                     arg3: ::libc::c_int)
-                                           -> ()>,
-    pub InPersistHookFunc: ::std::option::Option<extern "C" fn(arg1: SEXP,
-                                                               arg2: SEXP)
-                                                     -> SEXP>,
+    pub InChar: ::std::option::Option<extern "C" fn(arg1: R_inpstream_t) -> ::libc::c_int>,
+    pub InBytes: ::std::option::Option<
+        extern "C" fn(arg1: R_inpstream_t, arg2: *mut ::libc::c_void, arg3: ::libc::c_int) -> (),
+    >,
+    pub InPersistHookFunc: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
     pub InPersistHookData: SEXP,
 }
 impl ::std::clone::Clone for Struct_R_inpstream_st {
@@ -140,7 +131,7 @@ impl ::std::default::Default for Struct_R_inpstream_st {
     }
 }
 #[link(name = "R")]
-extern {
+extern "C" {
     pub static mut R_GlobalEnv: SEXP;
     pub static mut R_EmptyEnv: SEXP;
     pub static mut R_BaseEnv: SEXP;
@@ -180,7 +171,7 @@ extern {
     pub static mut R_BlankString: SEXP;
 }
 #[link(name = "R")]
-extern {
+extern "C" {
     pub fn R_CHAR(x: SEXP) -> *const ::libc::c_char;
     pub fn Rf_isNull(s: SEXP) -> Rboolean;
     pub fn Rf_isSymbol(s: SEXP) -> Rboolean;
@@ -297,11 +288,12 @@ extern {
     pub fn Rf_asReal(x: SEXP) -> ::libc::c_double;
     pub fn Rf_asComplex(x: SEXP) -> Rcomplex;
     pub fn Rf_acopy_string(arg1: *const ::libc::c_char) -> *mut ::libc::c_char;
-    pub fn Rf_alloc3DArray(arg1: SEXPTYPE,
-                           arg2: ::libc::c_int,
-                           arg3: ::libc::c_int,
-                           arg4: ::libc::c_int)
-                           -> SEXP;
+    pub fn Rf_alloc3DArray(
+        arg1: SEXPTYPE,
+        arg2: ::libc::c_int,
+        arg3: ::libc::c_int,
+        arg4: ::libc::c_int,
+    ) -> SEXP;
     pub fn Rf_allocArray(arg1: SEXPTYPE, arg2: SEXP) -> SEXP;
     pub fn Rf_allocMatrix(arg1: SEXPTYPE, arg2: ::libc::c_int, arg3: ::libc::c_int) -> SEXP;
     pub fn Rf_allocList(arg1: ::libc::c_int) -> SEXP;
@@ -311,20 +303,14 @@ extern {
     pub fn Rf_any_duplicated(x: SEXP, from_last: Rboolean) -> R_xlen_t;
     pub fn Rf_any_duplicated3(x: SEXP, incomp: SEXP, from_last: Rboolean) -> R_xlen_t;
     pub fn Rf_applyClosure(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
-    pub fn Rf_arraySubscript(arg1: ::libc::c_int, arg2: SEXP, arg3: SEXP,
-                             arg4:
-                                 ::std::option::Option<extern "C" fn(arg1:
-                                                                         SEXP,
-                                                                     arg2:
-                                                                         SEXP)
-                                                           -> SEXP>,
-                             arg5:
-                                 ::std::option::Option<extern "C" fn(arg1:
-                                                                         SEXP,
-                                                                     arg2:
-                                                                         ::libc::c_int)
-                                                           -> SEXP>,
-                             arg6: SEXP) -> SEXP;
+    pub fn Rf_arraySubscript(
+        arg1: ::libc::c_int,
+        arg2: SEXP,
+        arg3: SEXP,
+        arg4: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        arg5: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: ::libc::c_int) -> SEXP>,
+        arg6: SEXP,
+    ) -> SEXP;
     pub fn Rf_classgets(arg1: SEXP, arg2: SEXP) -> SEXP;
     pub fn Rf_cons(arg1: SEXP, arg2: SEXP) -> SEXP;
     pub fn Rf_copyMatrix(arg1: SEXP, arg2: SEXP, arg3: Rboolean) -> ();
@@ -350,12 +336,13 @@ extern {
     pub fn Rf_getAttrib(arg1: SEXP, arg2: SEXP) -> SEXP;
     pub fn Rf_GetArrayDimnames(arg1: SEXP) -> SEXP;
     pub fn Rf_GetColNames(arg1: SEXP) -> SEXP;
-    pub fn Rf_GetMatrixDimnames(arg1: SEXP,
-                                arg2: *mut SEXP,
-                                arg3: *mut SEXP,
-                                arg4: *mut *const ::libc::c_char,
-                                arg5: *mut *const ::libc::c_char)
-                                -> ();
+    pub fn Rf_GetMatrixDimnames(
+        arg1: SEXP,
+        arg2: *mut SEXP,
+        arg3: *mut SEXP,
+        arg4: *mut *const ::libc::c_char,
+        arg5: *mut *const ::libc::c_char,
+    ) -> ();
     pub fn Rf_GetOption(arg1: SEXP, arg2: SEXP) -> SEXP;
     pub fn Rf_GetOption1(arg1: SEXP) -> SEXP;
     pub fn Rf_GetOptionDigits() -> ::libc::c_int;
@@ -380,10 +367,11 @@ extern {
     pub fn Rf_nrows(arg1: SEXP) -> ::libc::c_int;
     pub fn Rf_nthcdr(arg1: SEXP, arg2: ::libc::c_int) -> SEXP;
     pub fn Rf_pmatch(arg1: SEXP, arg2: SEXP, arg3: Rboolean) -> Rboolean;
-    pub fn Rf_psmatch(arg1: *const ::libc::c_char,
-                      arg2: *const ::libc::c_char,
-                      arg3: Rboolean)
-                      -> Rboolean;
+    pub fn Rf_psmatch(
+        arg1: *const ::libc::c_char,
+        arg2: *const ::libc::c_char,
+        arg3: Rboolean,
+    ) -> Rboolean;
     pub fn Rf_PrintValue(arg1: SEXP) -> ();
     pub fn Rf_setAttrib(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
     pub fn Rf_setSVector(arg1: *mut SEXP, arg2: ::libc::c_int, arg3: SEXP) -> ();
@@ -410,15 +398,14 @@ extern {
     pub fn R_cycle_detected(s: SEXP, child: SEXP) -> Rboolean;
     pub fn Rf_getCharCE(arg1: SEXP) -> cetype_t;
     pub fn Rf_mkCharCE(arg1: *const ::libc::c_char, arg2: cetype_t) -> SEXP;
-    pub fn Rf_mkCharLenCE(arg1: *const ::libc::c_char,
-                          arg2: ::libc::c_int,
-                          arg3: cetype_t)
-                          -> SEXP;
-    pub fn Rf_reEnc(x: *const ::libc::c_char,
-                    ce_in: cetype_t,
-                    ce_out: cetype_t,
-                    subst: ::libc::c_int)
-                    -> *const ::libc::c_char;
+    pub fn Rf_mkCharLenCE(arg1: *const ::libc::c_char, arg2: ::libc::c_int, arg3: cetype_t)
+        -> SEXP;
+    pub fn Rf_reEnc(
+        x: *const ::libc::c_char,
+        ce_in: cetype_t,
+        ce_out: cetype_t,
+        subst: ::libc::c_int,
+    ) -> *const ::libc::c_char;
     pub fn R_MakeExternalPtr(p: *mut ::libc::c_void, tag: SEXP, prot: SEXP) -> SEXP;
     pub fn R_ExternalPtrAddr(s: SEXP) -> *mut ::libc::c_void;
     pub fn R_ExternalPtrTag(s: SEXP) -> SEXP;
@@ -442,21 +429,16 @@ extern {
     pub fn R_initialize_bcode() -> ();
     pub fn R_bcEncode(arg1: SEXP) -> SEXP;
     pub fn R_bcDecode(arg1: SEXP) -> SEXP;
-    pub fn R_ToplevelExec(fun:
-                              ::std::option::Option<extern "C" fn(arg1:
-                                                                      *mut ::libc::c_void)
-                                                        -> ()>,
-                          data: *mut ::libc::c_void) -> Rboolean;
-    pub fn R_ExecWithCleanup(fun:
-                                 ::std::option::Option<extern "C" fn(arg1:
-                                                                         *mut ::libc::c_void)
-                                                           -> SEXP>,
-                             data: *mut ::libc::c_void,
-                             cleanfun:
-                                 ::std::option::Option<extern "C" fn(arg1:
-                                                                         *mut ::libc::c_void)
-                                                           -> ()>,
-                             cleandata: *mut ::libc::c_void) -> SEXP;
+    pub fn R_ToplevelExec(
+        fun: ::std::option::Option<extern "C" fn(arg1: *mut ::libc::c_void) -> ()>,
+        data: *mut ::libc::c_void,
+    ) -> Rboolean;
+    pub fn R_ExecWithCleanup(
+        fun: ::std::option::Option<extern "C" fn(arg1: *mut ::libc::c_void) -> SEXP>,
+        data: *mut ::libc::c_void,
+        cleanfun: ::std::option::Option<extern "C" fn(arg1: *mut ::libc::c_void) -> ()>,
+        cleandata: *mut ::libc::c_void,
+    ) -> SEXP;
     pub fn R_RestoreHashCount(rho: SEXP) -> ();
     pub fn R_IsPackageEnv(rho: SEXP) -> Rboolean;
     pub fn R_PackageEnvName(rho: SEXP) -> SEXP;
@@ -479,67 +461,48 @@ extern {
     pub fn R_XDRDecodeDouble(buf: *mut ::libc::c_void) -> ::libc::c_double;
     pub fn R_XDREncodeInteger(i: ::libc::c_int, buf: *mut ::libc::c_void) -> ();
     pub fn R_XDRDecodeInteger(buf: *mut ::libc::c_void) -> ::libc::c_int;
-    pub fn R_InitInPStream(stream: R_inpstream_t, data: R_pstream_data_t,
-                           _type: R_pstream_format_t,
-                           inchar:
-                               ::std::option::Option<extern "C" fn(arg1:
-                                                                       R_inpstream_t)
-                                                         -> ::libc::c_int>,
-                           inbytes:
-                               ::std::option::Option<extern "C" fn(arg1:
-                                                                       R_inpstream_t,
-                                                                   arg2:
-                                                                       *mut ::libc::c_void,
-                                                                   arg3:
-                                                                       ::libc::c_int)
-                                                         -> ()>,
-                           phook:
-                               ::std::option::Option<extern "C" fn(arg1: SEXP,
-                                                                   arg2: SEXP)
-                                                         -> SEXP>,
-                           pdata: SEXP) -> ();
-    pub fn R_InitOutPStream(stream: R_outpstream_t, data: R_pstream_data_t,
-                            _type: R_pstream_format_t, version: ::libc::c_int,
-                            outchar:
-                                ::std::option::Option<extern "C" fn(arg1:
-                                                                        R_outpstream_t,
-                                                                    arg2:
-                                                                        ::libc::c_int)
-                                                          -> ()>,
-                            outbytes:
-                                ::std::option::Option<extern "C" fn(arg1:
-                                                                        R_outpstream_t,
-                                                                    arg2:
-                                                                        *mut ::libc::c_void,
-                                                                    arg3:
-                                                                        ::libc::c_int)
-                                                          -> ()>,
-                            phook:
-                                ::std::option::Option<extern "C" fn(arg1:
-                                                                        SEXP,
-                                                                    arg2:
-                                                                        SEXP)
-                                                          -> SEXP>,
-                            pdata: SEXP) -> ();
-    pub fn R_InitFileInPStream(stream: R_inpstream_t, fp: *mut FILE,
-                               _type: R_pstream_format_t,
-                               phook:
-                                   ::std::option::Option<extern "C" fn(arg1:
-                                                                           SEXP,
-                                                                       arg2:
-                                                                           SEXP)
-                                                             -> SEXP>,
-                               pdata: SEXP) -> ();
-    pub fn R_InitFileOutPStream(stream: R_outpstream_t, fp: *mut FILE,
-                                _type: R_pstream_format_t,
-                                version: ::libc::c_int,
-                                phook:
-                                    ::std::option::Option<extern "C" fn(arg1:
-                                                                            SEXP,
-                                                                        arg2:
-                                                                            SEXP)
-                                                              -> SEXP>,
-                                pdata: SEXP) -> ();
+    pub fn R_InitInPStream(
+        stream: R_inpstream_t,
+        data: R_pstream_data_t,
+        _type: R_pstream_format_t,
+        inchar: ::std::option::Option<extern "C" fn(arg1: R_inpstream_t) -> ::libc::c_int>,
+        inbytes: ::std::option::Option<
+            extern "C" fn(arg1: R_inpstream_t, arg2: *mut ::libc::c_void, arg3: ::libc::c_int)
+                -> (),
+        >,
+        phook: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    ) -> ();
+    pub fn R_InitOutPStream(
+        stream: R_outpstream_t,
+        data: R_pstream_data_t,
+        _type: R_pstream_format_t,
+        version: ::libc::c_int,
+        outchar: ::std::option::Option<
+            extern "C" fn(arg1: R_outpstream_t, arg2: ::libc::c_int) -> (),
+        >,
+        outbytes: ::std::option::Option<
+            extern "C" fn(arg1: R_outpstream_t, arg2: *mut ::libc::c_void, arg3: ::libc::c_int)
+                -> (),
+        >,
+        phook: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    ) -> ();
+    pub fn R_InitFileInPStream(
+        stream: R_inpstream_t,
+        fp: *mut FILE,
+        _type: R_pstream_format_t,
+        phook: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    ) -> ();
+    pub fn R_InitFileOutPStream(
+        stream: R_outpstream_t,
+        fp: *mut FILE,
+        _type: R_pstream_format_t,
+        version: ::libc::c_int,
+        phook: ::std::option::Option<extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    ) -> ();
     pub fn R_Serialize(s: SEXP, ops: R_outpstream_t) -> ();
     pub fn R_Unserialize(ips: R_inpstream_t) -> SEXP;
     pub fn R_do_slot(obj: SEXP, name: SEXP) -> SEXP;
@@ -548,10 +511,11 @@ extern {
     pub fn R_do_MAKE_CLASS(what: *const ::libc::c_char) -> SEXP;
     pub fn R_getClassDef(what: *const ::libc::c_char) -> SEXP;
     pub fn R_do_new_object(class_def: SEXP) -> SEXP;
-    pub fn R_check_class_and_super(x: SEXP,
-                                   valid: *mut *const ::libc::c_char,
-                                   rho: SEXP)
-                                   -> ::libc::c_int;
+    pub fn R_check_class_and_super(
+        x: SEXP,
+        valid: *mut *const ::libc::c_char,
+        rho: SEXP,
+    ) -> ::libc::c_int;
     pub fn R_check_class_etc(x: SEXP, valid: *mut *const ::libc::c_char) -> ::libc::c_int;
     pub fn R_PreserveObject(arg1: SEXP) -> ();
     pub fn R_ReleaseObject(arg1: SEXP) -> ();
@@ -559,12 +523,13 @@ extern {
     pub fn R_RunExitFinalizers() -> ();
     pub fn R_system(arg1: *const ::libc::c_char) -> ::libc::c_int;
     pub fn R_compute_identical(arg1: SEXP, arg2: SEXP, arg3: ::libc::c_int) -> Rboolean;
-    pub fn R_orderVector(indx: *mut ::libc::c_int,
-                         n: ::libc::c_int,
-                         arglist: SEXP,
-                         nalast: Rboolean,
-                         decreasing: Rboolean)
-                         -> ();
+    pub fn R_orderVector(
+        indx: *mut ::libc::c_int,
+        n: ::libc::c_int,
+        arglist: SEXP,
+        nalast: Rboolean,
+        decreasing: Rboolean,
+    ) -> ();
     pub fn Rf_allocVector(arg1: SEXPTYPE, arg2: R_xlen_t) -> SEXP;
     pub fn Rf_conformable(arg1: SEXP, arg2: SEXP) -> Rboolean;
     pub fn Rf_elt(arg1: SEXP, arg2: ::libc::c_int) -> SEXP;
@@ -595,13 +560,8 @@ extern {
     pub fn Rf_lang3(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
     pub fn Rf_lang4(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP) -> SEXP;
     pub fn Rf_lang5(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
-    pub fn Rf_lang6(arg1: SEXP,
-                    arg2: SEXP,
-                    arg3: SEXP,
-                    arg4: SEXP,
-                    arg5: SEXP,
-                    arg6: SEXP)
-                    -> SEXP;
+    pub fn Rf_lang6(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP, arg6: SEXP)
+        -> SEXP;
     pub fn Rf_lastElt(arg1: SEXP) -> SEXP;
     pub fn Rf_lcons(arg1: SEXP, arg2: SEXP) -> SEXP;
     pub fn Rf_length(arg1: SEXP) -> R_len_t;

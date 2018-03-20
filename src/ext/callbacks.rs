@@ -10,12 +10,15 @@ pub use super::super::internals::SEXP;
 pub use super::boolean::*;
 
 #[allow(non_camel_case_types)]
-pub type R_ToplevelCallback =
-    ::std::option::Option<unsafe extern "C" fn(expr: SEXP, value: SEXP,
-                                               succeeded: Rboolean,
-                                               visible: Rboolean,
-                                               arg1: *mut ::libc::c_void)
-                              -> Rboolean>;
+pub type R_ToplevelCallback = ::std::option::Option<
+    unsafe extern "C" fn(
+        expr: SEXP,
+        value: SEXP,
+        succeeded: Rboolean,
+        visible: Rboolean,
+        arg1: *mut ::libc::c_void,
+    ) -> Rboolean,
+>;
 #[allow(non_camel_case_types)]
 pub type R_ToplevelCallbackEl = Struct__ToplevelCallback;
 #[repr(C)]
@@ -40,45 +43,41 @@ impl ::std::default::Default for Struct__ToplevelCallback {
 #[allow(non_camel_case_types)]
 pub type R_ObjectTable = Struct__R_ObjectTable;
 #[allow(non_camel_case_types)]
-pub type Rdb_exists =
-    ::std::option::Option<unsafe extern "C" fn(name: *const ::libc::c_char,
-                                               canCache: *mut Rboolean,
-                                               arg1: *mut R_ObjectTable)
-                              -> Rboolean>;
+pub type Rdb_exists = ::std::option::Option<
+    unsafe extern "C" fn(
+        name: *const ::libc::c_char,
+        canCache: *mut Rboolean,
+        arg1: *mut R_ObjectTable,
+    ) -> Rboolean,
+>;
 #[allow(non_camel_case_types)]
-pub type Rdb_get =
-    ::std::option::Option<unsafe extern "C" fn(name: *const ::libc::c_char,
-                                               canCache: *mut Rboolean,
-                                               arg1: *mut R_ObjectTable)
-                              -> SEXP>;
+pub type Rdb_get = ::std::option::Option<
+    unsafe extern "C" fn(
+        name: *const ::libc::c_char,
+        canCache: *mut Rboolean,
+        arg1: *mut R_ObjectTable,
+    ) -> SEXP,
+>;
 #[allow(non_camel_case_types)]
-pub type Rdb_remove =
-    ::std::option::Option<unsafe extern "C" fn(name: *const ::libc::c_char,
-                                               arg1: *mut R_ObjectTable)
-                              -> ::libc::c_int>;
+pub type Rdb_remove = ::std::option::Option<
+    unsafe extern "C" fn(name: *const ::libc::c_char, arg1: *mut R_ObjectTable) -> ::libc::c_int,
+>;
 #[allow(non_camel_case_types)]
-pub type Rdb_assign =
-    ::std::option::Option<unsafe extern "C" fn(name: *const ::libc::c_char,
-                                               value: SEXP,
-                                               arg1: *mut R_ObjectTable)
-                              -> SEXP>;
+pub type Rdb_assign = ::std::option::Option<
+    unsafe extern "C" fn(name: *const ::libc::c_char, value: SEXP, arg1: *mut R_ObjectTable)
+        -> SEXP,
+>;
 #[allow(non_camel_case_types)]
 pub type Rdb_objects =
-    ::std::option::Option<unsafe extern "C" fn(arg1: *mut R_ObjectTable)
-                              -> SEXP>;
+    ::std::option::Option<unsafe extern "C" fn(arg1: *mut R_ObjectTable) -> SEXP>;
 #[allow(non_camel_case_types)]
-pub type Rdb_canCache =
-    ::std::option::Option<unsafe extern "C" fn(name: *const ::libc::c_char,
-                                               arg1: *mut R_ObjectTable)
-                              -> Rboolean>;
+pub type Rdb_canCache = ::std::option::Option<
+    unsafe extern "C" fn(name: *const ::libc::c_char, arg1: *mut R_ObjectTable) -> Rboolean,
+>;
 #[allow(non_camel_case_types)]
-pub type Rdb_onDetach =
-    ::std::option::Option<unsafe extern "C" fn(arg1: *mut R_ObjectTable)
-                              -> ()>;
+pub type Rdb_onDetach = ::std::option::Option<unsafe extern "C" fn(arg1: *mut R_ObjectTable) -> ()>;
 #[allow(non_camel_case_types)]
-pub type Rdb_onAttach =
-    ::std::option::Option<unsafe extern "C" fn(arg1: *mut R_ObjectTable)
-                              -> ()>;
+pub type Rdb_onAttach = ::std::option::Option<unsafe extern "C" fn(arg1: *mut R_ObjectTable) -> ()>;
 #[repr(C)]
 #[derive(Copy)]
 #[allow(non_snake_case)]
@@ -106,19 +105,16 @@ impl ::std::default::Default for Struct__R_ObjectTable {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[link(name = "R")]
-extern {
+
+extern "C" {
     pub fn Rf_removeTaskCallbackByIndex(id: ::libc::c_int) -> Rboolean;
     pub fn Rf_removeTaskCallbackByName(name: *const ::libc::c_char) -> Rboolean;
     pub fn R_removeTaskCallback(which: SEXP) -> SEXP;
-    pub fn Rf_addTaskCallback(cb: R_ToplevelCallback,
-                              data: *mut ::libc::c_void,
-                              finalizer:
-                                  ::std::option::Option<unsafe extern "C" fn(
-                                      arg1:
-                                      *mut ::libc::c_void)
-                                  -> ()>,
-                              name: *const ::libc::c_char,
-                              pos: *mut ::libc::c_int)
-     -> *mut R_ToplevelCallbackEl;
+    pub fn Rf_addTaskCallback(
+        cb: R_ToplevelCallback,
+        data: *mut ::libc::c_void,
+        finalizer: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::libc::c_void) -> ()>,
+        name: *const ::libc::c_char,
+        pos: *mut ::libc::c_int,
+    ) -> *mut R_ToplevelCallbackEl;
 }

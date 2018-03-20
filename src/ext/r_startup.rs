@@ -49,16 +49,16 @@ impl ::std::default::Default for structRstart {
 }
 pub type Rstart = *mut structRstart;
 
-#[link(name = "R")]
-extern {
+extern "C" {
     pub fn R_DefParams(arg1: Rstart) -> ();
     pub fn R_SetParams(arg1: Rstart) -> ();
     pub fn R_SetWin32(arg1: Rstart) -> ();
     pub fn R_SizeFromEnv(arg1: Rstart) -> ();
-    pub fn R_common_command_line(arg1: *mut ::libc::c_int,
-                                 arg2: *mut *mut ::libc::c_char,
-                                 arg3: Rstart)
-                                 -> ();
+    pub fn R_common_command_line(
+        arg1: *mut ::libc::c_int,
+        arg2: *mut *mut ::libc::c_char,
+        arg3: Rstart,
+    ) -> ();
     pub fn R_set_command_line_arguments(argc: ::libc::c_int, argv: *mut *mut ::libc::c_char) -> ();
     pub fn setup_Rmainloop() -> ();
 }

@@ -5,8 +5,7 @@ use super::boolean::*;
 const SINGLESXP: u32 = 302;
 
 #[allow(non_camel_case_types)]
-pub type DL_FUNC =
-    ::std::option::Option<extern "C" fn() -> *mut ::libc::c_void>;
+pub type DL_FUNC = ::std::option::Option<extern "C" fn() -> *mut ::libc::c_void>;
 #[allow(non_camel_case_types)]
 pub type R_NativePrimitiveArgType = ::libc::c_uint;
 #[allow(non_camel_case_types)]
@@ -68,11 +67,13 @@ impl ::std::default::Default for R_CallMethodDef {
 #[allow(non_camel_case_types)]
 pub type R_ExternalMethodDef = R_CallMethodDef;
 #[allow(non_camel_case_types)]
-pub enum Struct__DllInfo { }
+pub enum Struct__DllInfo {
+}
 pub type DllInfo = Struct__DllInfo;
 
 #[allow(non_camel_case_types)]
-pub enum Struct_Rf_RegisteredNativeSymbol { }
+pub enum Struct_Rf_RegisteredNativeSymbol {
+}
 #[allow(non_camel_case_types)]
 pub type R_RegisteredNativeSymbol = Struct_Rf_RegisteredNativeSymbol;
 
@@ -86,25 +87,27 @@ pub enum NativeSymbolType {
     R_EXTERNAL_SYM,
 }
 
-#[link(name = "R")]
-extern {
-    pub fn R_registerRoutines(info: *mut DllInfo,
-                              croutines: *const R_CMethodDef,
-                              callRoutines: *const R_CallMethodDef,
-                              fortranRoutines: *const R_FortranMethodDef,
-                              externalRoutines: *const R_ExternalMethodDef)
-                              -> ::libc::c_int;
+extern "C" {
+    pub fn R_registerRoutines(
+        info: *mut DllInfo,
+        croutines: *const R_CMethodDef,
+        callRoutines: *const R_CallMethodDef,
+        fortranRoutines: *const R_FortranMethodDef,
+        externalRoutines: *const R_ExternalMethodDef,
+    ) -> ::libc::c_int;
     pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_getDllInfo(name: *const ::libc::c_char) -> *mut DllInfo;
     pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
-    pub fn R_FindSymbol(arg1: *const ::libc::c_char,
-                        arg2: *const ::libc::c_char,
-                        symbol: *mut R_RegisteredNativeSymbol)
-                        -> DL_FUNC;
-    pub fn R_RegisterCCallable(package: *const ::libc::c_char,
-                               name: *const ::libc::c_char,
-                               fptr: DL_FUNC)
-                               -> ();
+    pub fn R_FindSymbol(
+        arg1: *const ::libc::c_char,
+        arg2: *const ::libc::c_char,
+        symbol: *mut R_RegisteredNativeSymbol,
+    ) -> DL_FUNC;
+    pub fn R_RegisterCCallable(
+        package: *const ::libc::c_char,
+        name: *const ::libc::c_char,
+        fptr: DL_FUNC,
+    ) -> ();
     pub fn R_GetCCallable(package: *const ::libc::c_char, name: *const ::libc::c_char) -> DL_FUNC;
 }

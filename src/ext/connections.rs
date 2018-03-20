@@ -21,54 +21,44 @@ pub struct Struct_Rconn {
     pub canseek: Rboolean,
     pub blocking: Rboolean,
     pub isGzcon: Rboolean,
-    pub open: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                             *mut Struct_Rconn)
-                                        -> Rboolean>,
-    pub close: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                              *mut Struct_Rconn)
-                                         -> ()>,
-    pub destroy: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                                *mut Struct_Rconn)
-                                           -> ()>,
-    pub vfprintf: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                                 *mut Struct_Rconn,
-                                                             arg2:
-                                                                 *const ::libc::c_char,
-                                                             arg3: va_list)
-                                            -> ::libc::c_int>,
-    pub fgetc: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                              *mut Struct_Rconn)
-                                         -> ::libc::c_int>,
-    pub fgetc_internal: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                                       *mut Struct_Rconn)
-                                                  -> ::libc::c_int>,
-    pub seek: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                             *mut Struct_Rconn,
-                                                         arg2:
-                                                             ::libc::c_double,
-                                                         arg3: ::libc::c_int,
-                                                         arg4: ::libc::c_int)
-                                        -> ::libc::c_double>,
-    pub truncate: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                                 *mut Struct_Rconn)
-                                            -> ()>,
-    pub fflush: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                               *mut Struct_Rconn)
-                                          -> ::libc::c_int>,
-    pub read: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                             *mut ::libc::c_void,
-                                                         arg2: size_t,
-                                                         arg3: size_t,
-                                                         arg4:
-                                                             *mut Struct_Rconn)
-                                        -> size_t>,
-    pub write: ::std::option::Option<unsafe extern "C" fn(arg1:
-                                                              *const ::libc::c_void,
-                                                          arg2: size_t,
-                                                          arg3: size_t,
-                                                          arg4:
-                                                              *mut Struct_Rconn)
-                                         -> size_t>,
+    pub open: ::std::option::Option<unsafe extern "C" fn(arg1: *mut Struct_Rconn) -> Rboolean>,
+    pub close: ::std::option::Option<unsafe extern "C" fn(arg1: *mut Struct_Rconn) -> ()>,
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(arg1: *mut Struct_Rconn) -> ()>,
+    pub vfprintf: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut Struct_Rconn, arg2: *const ::libc::c_char, arg3: va_list)
+            -> ::libc::c_int,
+    >,
+    pub fgetc:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut Struct_Rconn) -> ::libc::c_int>,
+    pub fgetc_internal:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut Struct_Rconn) -> ::libc::c_int>,
+    pub seek: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut Struct_Rconn,
+            arg2: ::libc::c_double,
+            arg3: ::libc::c_int,
+            arg4: ::libc::c_int,
+        ) -> ::libc::c_double,
+    >,
+    pub truncate: ::std::option::Option<unsafe extern "C" fn(arg1: *mut Struct_Rconn) -> ()>,
+    pub fflush:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut Struct_Rconn) -> ::libc::c_int>,
+    pub read: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut ::libc::c_void,
+            arg2: size_t,
+            arg3: size_t,
+            arg4: *mut Struct_Rconn,
+        ) -> size_t,
+    >,
+    pub write: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *const ::libc::c_void,
+            arg2: size_t,
+            arg3: size_t,
+            arg4: *mut Struct_Rconn,
+        ) -> size_t,
+    >,
     pub nPushBack: ::libc::c_int,
     pub posPushBack: ::libc::c_int,
     pub PushBack: *mut *mut ::libc::c_char,
@@ -100,13 +90,14 @@ impl ::std::default::Default for Struct_Rconn {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[link(name = "R")]
-extern {
-    pub fn R_new_custom_connection(description: *const ::libc::c_char,
-                                   mode: *const ::libc::c_char,
-                                   class_name: *const ::libc::c_char,
-                                   ptr: *mut Rconnection)
-                                   -> SEXP;
+
+extern "C" {
+    pub fn R_new_custom_connection(
+        description: *const ::libc::c_char,
+        mode: *const ::libc::c_char,
+        class_name: *const ::libc::c_char,
+        ptr: *mut Rconnection,
+    ) -> SEXP;
     pub fn R_ReadConnection(con: Rconnection, buf: *mut ::libc::c_void, n: size_t) -> size_t;
     pub fn R_WriteConnection(con: Rconnection, buf: *mut ::libc::c_void, n: size_t) -> size_t;
 }

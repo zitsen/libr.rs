@@ -9,10 +9,11 @@ pub enum ParseStatus {
     PARSE_EOF,
 }
 
-extern {
-    pub fn R_ParseVector(arg1: SEXP,
-                         arg2: ::libc::c_int,
-                         arg3: *mut ParseStatus,
-                         arg4: SEXP)
-                         -> SEXP;
+extern "C" {
+    pub fn R_ParseVector(
+        arg1: SEXP,
+        arg2: ::libc::c_int,
+        arg3: *mut ParseStatus,
+        arg4: SEXP,
+    ) -> SEXP;
 }
